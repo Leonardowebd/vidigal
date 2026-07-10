@@ -1,0 +1,21 @@
+/* Fazenda Vidigal — spacing, radius & shadow tokens.
+   Values are copied verbatim from the file's auto-layout gaps/padding —
+   they don't snap to a 4/8px grid (10, 29, 56...) and that's intentional. */
+
+:root {
+  --space-1: 10px;
+  --space-2: 20px;
+  --space-3: 29px;
+  --space-4: 30px;
+  --space-5: 50px;
+  --space-6: 56px;   /* button horizontal padding */
+  --space-7: 88px;   /* section top offset */
+  --space-8: 119px;
+
+  --radius-sm: 16px;   /* buttons */
+  --radius-md: 20px;   /* photo cards / quote panels */
+  --radius-lg: 34px;   /* hero image */
+  --radius-xl: 37px;   /* footer image bottom corners */
+
+  --shadow-inset-hairline: inset 0 0 0 1px rgb(255,255,255); /* secondary button on photo */
+}

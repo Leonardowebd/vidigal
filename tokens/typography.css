@@ -1,0 +1,26 @@
+/* Fazenda Vidigal — type tokens.
+   Primary: Century Schoolbook (CENSBKBC) — serif, used for headlines/display.
+   Secondary: Montserrat (Google Font) — sans-serif, used for body/UI. */
+
+@font-face {
+  font-family: 'Century Schoolbook';
+  src: url('../assets/fonts/CENSBKBC.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+  --font-serif: 'Century Schoolbook', 'Georgia', serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-display: normal 400 48px/1.1 var(--font-serif);
+  --text-heading: normal 400 24px/1.1 var(--font-serif);
+  --text-heading-sm: normal 400 20px/1.1 var(--font-serif);
+  --text-eyebrow: normal 400 24px/1 var(--font-sans);
+  --text-body: normal 400 24px/1.4 var(--font-sans);
+  --text-button: normal 400 24px/1.1 var(--font-sans);
+  --text-button-sm: normal 400 20px/1.1 var(--font-sans);
+}
