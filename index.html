@@ -255,7 +255,7 @@
   <div style="position: relative; z-index: 1; background: var(--cream); border-radius: 49px">
 
   <!-- HERO — 828px section, 772px inner -->
-
+  
 
   <!-- VIDEO MODAL -->
   <sc-if value="{{ showVideo }}" hint-placeholder-val="{{ false }}">
@@ -267,8 +267,8 @@
   </sc-if>
 
   <!-- ENCONTRO NACIONAL DO CAFÉ — carousel with arrows + text right -->
-  <div class="ms-hero" style="position: relative; height: 632px; overflow: hidden; background-color: rgb(246,242,231)">
-    <div class="ms-hero-inner" style="position: absolute; left: 30px; right: 30px; top: 26px; width: auto; height: 576px; border-radius: 34px; background: linear-gradient(rgba(35,1,0,0.52),rgba(35,1,0,0.52)), url(./assets/photos/hero-vista.jpg) center / cover no-repeat; display: flex; flex-direction: column; gap: 29px; padding: 10px 30px; justify-content: center; align-items: flex-start; box-sizing: border-box">
+  <div class="ms-hero" id="topo" style="position: relative; height: 632px; overflow: hidden; background-color: rgb(246,242,231)">
+    <div class="ms-hero-inner" style="position: absolute; left: 30px; right: 30px; top: 26px; width: auto; height: 576px; border-radius: 34px; background: linear-gradient(rgba(35,1,0,0.52),rgba(35,1,0,0.52)), url(./assets/opt/hero-vista.jpg) center / cover no-repeat; display: flex; flex-direction: column; gap: 29px; padding: 10px 30px; justify-content: center; align-items: flex-start; box-sizing: border-box">
       <img class="ms-hero-logo" src="./captura-de-tela-2026-07-08-a-s-18-40-33--mreapqle.png" alt="Fazenda Vidigal" style="width:258.652px;height:95px;object-fit:contain;object-position:left center;">
       <div class="ms-copy" style="width:596px;display:flex;flex-direction:column;gap:10px;align-items:flex-start;flex-shrink:0;">
         <span style="font-family:var(--font-sans);font-size:24px;line-height:100%;color:rgb(255,255,255);">Barra do Choça · Planalto da Conquista · Bahia</span>
@@ -284,14 +284,14 @@
         </div>
       </div>
       <!-- Play button — opens video popup -->
-      <div class="ms-play" onClick="{{ openVideo }}" style="position:absolute;right:24%;top:340px;width:139px;height:147px;cursor:pointer;opacity:0.9;" style-hover="opacity:1;transform:scale(1.06);">
-
+      <div class="ms-play" onClick="{{ openVideo }}" style="position:absolute;right:24%;top:50%;transform:translateY(-50%);width:139px;height:147px;cursor:pointer;opacity:0.9;" style-hover="opacity:1;transform:translateY(-50%) scale(1.06);">
+        
       <svg width="139" height="147" viewBox="0 0 139 147" fill="rgb(255,255,255)">
           <path d="M 127.365 54.045 C 130.879 55.922 133.818 58.725 135.867 62.152 C 137.917 65.579 139 69.502 139 73.5 C 139 77.498 137.917 81.421 135.867 84.848 C 133.818 88.275 130.879 91.078 127.365 92.955 L 33.632 144.161 C 18.539 152.415 0 141.684 0 124.713 L 0 22.294 C 0 5.316 18.539 -5.407 33.632 2.832 L 127.365 54.045 Z" fill-rule="nonzero"></path>
         </svg></div>
     </div>
-  </div><div class="ms-encontro" style="padding: 88px 50px; display: flex; gap: 144px; align-items: flex-start; justify-content: space-between; background-color: rgb(246,242,231)">
-
+  </div><div class="ms-encontro" id="encontro" style="padding: 88px 50px; display: flex; gap: 144px; align-items: flex-start; justify-content: space-between; background-color: rgb(246,242,231)">
+    
     <div class="ms-encontro-media" style="flex: 0 0 45%; max-width: 497px; display: flex; flex-direction: column; align-items: center; width: 100%; height: 581px; flex-wrap: nowrap; position: sticky">
       <div style="aspect-ratio:497/492;width:100%;position:relative;">
         <x-import component-from-global-scope="Stack" from="./Stack.jsx" ref="{{ stackRef }}" cards="{{ encontroCards }}" sensitivity="{{ 180 }}" hint-size="100%,100%">Stack</x-import>
@@ -310,28 +310,28 @@
   </div>
 
   <!-- FAMÍLIA — text contained in box -->
-  <div class="ms-familia" style="position: relative; height: 867px; overflow: hidden; background: url(&quot;./frame-4-mrev2fwx.png&quot;) center / cover no-repeat">
+  <div class="ms-familia" id="familia" style="position: relative; height: 867px; overflow: hidden; background: url(&quot;./assets/opt/frame-4.png&quot;) center / cover no-repeat">
     <div class="ms-familia-box" style="position: absolute; left: 50px; top: 41px; width: 540px; height: 770px; border-radius: 20px; background-color: rgb(246,242,231); padding: 50px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; overflow: hidden; padding-top: 47px; padding-right: 47px; padding-bottom: 47px; padding-left: 47px">
       <span style="font-family:var(--font-sans);font-size:22px;line-height:100%;color:var(--text-primary);">Fazenda Vidigal e Família</span>
       <h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 66px; line-height: 1.1; color: var(--text-primary)">Uma herança que atravessou três gerações até virar fazenda.</h2>
-
+      
       <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.4; color: var(--text-primary); font-weight: 200">A relação da família com o café começou em Viçosa, Minas Gerais, na torrefação dos avós de Valéria Vidigal. Décadas depois, ela e o engenheiro agrônomo Giano Brito replantaram essa história no Planalto da Conquista, na Bahia ela com a arte, ele com a ciência do campo.</p><p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.4; color: var(--text-primary); font-weight: 200">Hoje, Rafaela, Isabela e Renato crescem dentro da mesma lavoura, e a Fazenda Vidigal também virou sede de um dos maiores encontros de café do Brasil.</p>
     </div>
   </div>
 
   <!-- ROTA DO CAFÉ #1 (Session 4) — text on the right; bent/circular photo gallery on the left (CSS adaptation of React Bits "CircularGallery") -->
-  <div class="ms-rota1" style="position:relative;height:700px;overflow:hidden;background-color:rgb(246,242,231);">
+  <div class="ms-rota1" id="rota" style="position:relative;height:700px;overflow:hidden;background-color:rgb(246,242,231);">
     <div class="ms-circ" style="position: absolute; left: -125px; top: -3px; width: 745px; height: 765px; overflow: hidden">
       <div style="position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to bottom, rgb(246,242,231) 0%, transparent 22%, transparent 62%, rgb(246,242,231) 100%);"></div>
       <div style="position:absolute;left:0px;top:50%;width:0;height:0;animation:ringSpin 24s linear infinite;">
-        <div style="position:absolute;transform:rotate(0deg) translate(560px) rotate(0deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/photos/rota-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
-        <div style="position:absolute;transform:rotate(45deg) translate(560px) rotate(-45deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/photos/rota-03.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
-        <div style="position:absolute;transform:rotate(90deg) translate(560px) rotate(-90deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/photos/rota-05.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
-        <div style="position:absolute;transform:rotate(135deg) translate(560px) rotate(-135deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/photos/rota-02.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
-        <div style="position:absolute;transform:rotate(180deg) translate(560px) rotate(-180deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/photos/rota-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
-        <div style="position:absolute;transform:rotate(225deg) translate(560px) rotate(-225deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/photos/rota-03.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
-        <div style="position:absolute;transform:rotate(270deg) translate(560px) rotate(-270deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/photos/rota-05.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
-        <div style="position:absolute;transform:rotate(315deg) translate(560px) rotate(-315deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/photos/rota-02.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(0deg) translate(560px) rotate(0deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(45deg) translate(560px) rotate(-45deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-03.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(90deg) translate(560px) rotate(-90deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-05.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(135deg) translate(560px) rotate(-135deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-02.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(180deg) translate(560px) rotate(-180deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(225deg) translate(560px) rotate(-225deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-03.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(270deg) translate(560px) rotate(-270deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-05.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(315deg) translate(560px) rotate(-315deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-02.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
       </div>
     </div>
     <div class="ms-rota1-text" style="position: absolute; left: 798px; top: 83px; width: 596px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start">
@@ -348,23 +348,23 @@
   <!-- GALERIA + VALÉRIA -->
   <div style="overflow:hidden;background-color:rgb(246,242,231);">
     <div class="ms-grid" style="display:grid;grid-template-columns:repeat(5, 1fr);gap:0;">
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/product-01.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/gallery-01.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/gallery-02.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/gallery-03.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/gallery-04.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/gallery-05.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/gallery-06.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/gallery-07.png" alt="Valéria Vidigal" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/gallery-08.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/giano-bg.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/gallery-09.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/family-fazenda.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/gallery-10.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/footer-vista.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/photos/hero-vista.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/product-01.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-01.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-02.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-03.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-04.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-05.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-06.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-07.png" alt="Valéria Vidigal" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-08.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/giano-bg.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-09.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/family-fazenda.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-10.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/footer-vista.jpg" hint-size="100%,100%"></x-import></div>
+      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/hero-vista.jpg" hint-size="100%,100%"></x-import></div>
     </div>
-    <div class="ms-valeria" style="display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center;max-width:753px;margin:0 auto;padding:40px 50px;">
+    <div class="ms-valeria" id="valeria" style="display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center;max-width:753px;margin:0 auto;padding:40px 50px;">
       <img src="./assets/logo-v-vidigal.png" alt="V. Vidigal" style="height:72px;width:180px;object-fit:contain;">
       <h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.1; color: var(--text-primary); text-align: center; width: 599px; height: 105px">Há mais de vinte anos, Valéria pinta uma coisa só: café.</h2>
       <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.4; color: var(--text-primary); text-align: center; font-weight: 300">Valéria Vidigal é artista plástica e cafeicultora. Suas telas retratam exclusivamente o universo do café da colheita à xícara e já passaram por mais de 100 exposições no Brasil e no exterior. Hoje, seu trabalho é referência para quem estuda a cultura cafeeira através da arte.</p>
@@ -372,15 +372,15 @@
   </div>
 
   <!-- GIANO — Frame 6 background -->
-  <div class="ms-giano" style="background:url(./assets/photos/frame6-bg.png) center/cover no-repeat;padding:30px;display:flex;gap:30px;justify-content:center;align-items:center;">
-    <div class="ms-giano-portrait" style="width:675px;height:768px;border-radius:20px;background:url(./assets/photos/giano-portrait.png) center / cover no-repeat;flex-shrink:0;"></div>
+  <div class="ms-giano" id="giano" style="background:url(./assets/opt/frame6-bg.png) center/cover no-repeat;padding:30px;display:flex;gap:30px;justify-content:center;align-items:center;">
+    <div class="ms-giano-portrait" style="width:675px;height:768px;border-radius:20px;background:url(./assets/opt/giano-portrait.png) center / cover no-repeat;flex-shrink:0;"></div>
     <div class="ms-giano-box" style="position:relative;width:675px;height:768px;border-radius:20px;background-color:rgb(246,242,231);flex-shrink:0;">
       <div class="ms-giano-textwrap" style="position:absolute;left:40px;top:72px;width:596px;display:flex;flex-direction:column;gap:20px;align-items:flex-start;">
-
+        
       <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;">
           <h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.1; color: var(--text-primary); width: 417px; height: 173px">Há mais de vinte anos, ele decide cada etapa antes que o grão exista.</h2>
           <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.4; color: var(--text-primary)">Giano Brito é engenheiro agrônomo e o responsável técnico da Fazenda Vidigal. Escolhe as mudas, conduz o cultivo e define os processos de colheita e pós-colheita a ciência por trás de cada prêmio que a fazenda recebe.<br><br>É também um dos organizadores do Encontro Nacional do Café ao lado de Valéria Vidigal e Márcia Viana, evento que reúne o setor cafeeiro do Brasil inteiro na fazenda desde 2007.</p>
-
+          
         </div></div>
       <img src="./logovidigla-mrevb200.png" alt="Fazenda Vidigal" style="position: absolute; left: 561px; top: 651px; width: 91px; height: 96px; object-fit: contain">
     </div>
@@ -392,34 +392,34 @@
     <!-- Inner shell: owns overflow:hidden + the same radius, so only ITS content (bg + photos) clips into the rounded shape -->
     <div class="ms-rota2-inner" style="position:absolute;inset:0;overflow:hidden;border-radius:0 0 37px 37px;background-color:rgb(246,242,231);display:flex;">
     <div class="ms-rota2-text" style="flex: 0 0 auto; width: 746px; padding: 88px 0 0 50px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; border-radius: 0px; flex-grow: 0">
-      <span style="font-family:var(--font-sans);font-size:24px;line-height:1.2;color:var(--text-primary);">Rota do Café</span>
-      <h2 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:48px;line-height:1.2;color:var(--text-primary);width:596px;">Você pode passar a vida bebendo café. Ou passar um dia entendendo tudo o que existe antes dele.</h2>
-
-
-      <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 505px; font-weight: 300; height: 189px">A visita à Fazenda Vidigal é guiada e pensada para grupos: rota sensorial do café, colheita no pé, laboratório, degustação, espaço gourmet.<br><br>Cada roteiro é montado para o seu grupo, do simples ao completo.</p><div style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
-        <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.2; color: rgb(255,255,255)">Quero fazer a rota do café!</span>
+      <span style="font-family:var(--font-sans);font-size:24px;line-height:1.2;color:var(--text-primary);">O Café Vidigal</span>
+      <h2 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:48px;line-height:1.2;color:var(--text-primary);width:596px;">O prêmio começa antes da xícara.</h2>
+      
+      
+      <div style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 505px; font-weight: 300; height: 189px"><p class="p1" style="margin: 0px; font-style: normal; font-variant: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Montserrat; color: rgba(0, 0, 0, 0.85)">Café Vidigal é o resultado de duas décadas de método: colheita 100% manual, processos de despolpado e natural premiados em concursos nacionais.<span class="Apple-converted-space">&nbsp; <br></span><br>Cada safra carrega o mesmo padrão que colocou a fazenda entre as mais premiadas do Planalto da Conquista.</p></div><div style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+        <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.2; color: rgb(255,255,255)">Quero conhecer o Café Vidigal!</span>
       </div>
     </div>
     <div class="ms-rota2-photos" style="flex:1;position:relative;overflow:hidden;">
       <div style="position:absolute;inset:0;display:flex;gap:6px;">
         <div style="flex:1;overflow:hidden;">
           <div style="display:flex;flex-direction:column;gap:6px;animation:scrollUp 40s linear infinite;">
-            <img src="./assets/photos/rota-01.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
-            <img src="./assets/photos/rota-03.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
-            <img src="./assets/photos/rota-05.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
-            <img src="./assets/photos/rota-01.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
-            <img src="./assets/photos/rota-03.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
-            <img src="./assets/photos/rota-05.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-01.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-03.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-05.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-01.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-03.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-05.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
           </div>
         </div>
         <div style="flex:1;overflow:hidden;">
           <div style="display:flex;flex-direction:column;gap:6px;animation:scrollDown 40s linear infinite;">
-            <img src="./assets/photos/rota-02.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
-            <img src="./assets/photos/rota-04.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
-            <img src="./assets/photos/rota-06.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
-            <img src="./assets/photos/rota-02.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
-            <img src="./assets/photos/rota-04.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
-            <img src="./assets/photos/rota-06.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-02.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-04.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-06.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-02.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-04.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-06.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
           </div>
         </div>
       </div>
@@ -430,7 +430,7 @@
   </div>
 
   <!-- FOOTER — sticky reveal, logosvidigal.png -->
-  <div class="ms-footer" style="position:sticky;bottom:0;z-index:0;width:100%;height:867px;overflow:hidden;background:url(./assets/photos/footer-vista.jpg) center / cover no-repeat;">
+  <div class="ms-footer" style="position:sticky;bottom:0;z-index:0;width:100%;height:867px;overflow:hidden;background:url(./assets/opt/footer-vista.jpg) center / cover no-repeat;">
     <div style="position:absolute;left:50%;top:197px;transform:translateX(-50%);">
       <img src="./assets/logosvidigal.png" alt="Fazenda Vidigal" style="height:95px;object-fit:contain;">
     </div>
@@ -438,19 +438,19 @@
       <div class="ms-footer-loc" style="font-family:var(--font-serif);font-size:22px;line-height:1.3;">Fazenda Vidigal · Barra do Choça · Planalto da Conquista · Bahia</div>
       <div class="ms-footer-row" style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;font-family:var(--font-sans);font-weight:300;font-size:16px;line-height:1.4;opacity:0.92;">
         <span style="font-weight:500;opacity:1;">Navegue:</span>
-        <span>Encontro Nacional do Café</span><span style="opacity:0.5;">·</span>
-        <span>Quem somos</span><span style="opacity:0.5;">·</span>
-        <span>Rota do Café</span><span style="opacity:0.5;">·</span>
-        <span>Valéria Vidigal</span><span style="opacity:0.5;">·</span>
-        <span>Giano Brito</span><span style="opacity:0.5;">·</span>
-        <span>Fazenda Vidigal (Café)</span>
+        <a href="#encontro" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">Encontro Nacional do Café</a><span style="opacity:0.5;">·</span>
+        <a href="#familia" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">Quem somos</a><span style="opacity:0.5;">·</span>
+        <a href="#rota" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">Rota do Café</a><span style="opacity:0.5;">·</span>
+        <a href="#valeria" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">Valéria Vidigal</a><span style="opacity:0.5;">·</span>
+        <a href="#giano" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">Giano Brito</a><span style="opacity:0.5;">·</span>
+        <a href="#topo" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">Fazenda Vidigal (Café)</a>
       </div>
       <div class="ms-footer-row" style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;font-family:var(--font-sans);font-weight:300;font-size:16px;line-height:1.4;opacity:0.92;">
         <span style="font-weight:500;opacity:1;">Contato:</span>
-        <span>WhatsApp</span><span style="opacity:0.5;">·</span>
-        <span>@fazendavidigal</span><span style="opacity:0.5;">·</span>
-        <span>@cafevidigal</span><span style="opacity:0.5;">·</span>
-        <span>@valeriavidigal</span>
+        <a href="https://wa.me/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">WhatsApp</a><span style="opacity:0.5;">·</span>
+        <a href="https://instagram.com/fazendavidigal" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">@fazendavidigal</a><span style="opacity:0.5;">·</span>
+        <a href="https://instagram.com/cafevidigal" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">@cafevidigal</a><span style="opacity:0.5;">·</span>
+        <a href="https://instagram.com/valeriavidigal" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">@valeriavidigal</a>
       </div>
       <div style="margin-top:8px;font-family:var(--font-serif);font-size:18px;line-height:1.3;opacity:0.85;">Fazenda Vidigal — Café feito com arte.</div>
     </div>
@@ -467,7 +467,7 @@ class Component extends DCLogic {
     const encontroCards = encontroFiles.map((f, i) =>
       React.createElement('img', {
         key: i,
-        src: `./assets/photos/${f}`,
+        src: `./assets/opt/${f}`,
         alt: '',
         style: { width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none' },
       })
