@@ -42,7 +42,7 @@
     @media (max-width: 768px) {
       /* HERO */
       .ms-hero { height: auto !important; }
-      .ms-hero-inner { position: relative !important; left: auto !important; top: auto !important; width: auto !important; height: auto !important; min-height: 82vh !important; margin: 12px !important; padding: 44px 22px !important; gap: 20px !important; justify-content: flex-end !important; }
+      .ms-hero-inner { position: relative !important; left: auto !important; right: auto !important; top: auto !important; width: auto !important; height: auto !important; min-height: 82vh !important; margin: 12px !important; padding: 44px 22px !important; gap: 20px !important; justify-content: flex-end !important; }
       .ms-hero-logo { width: 168px !important; height: auto !important; }
       .ms-copy { width: 100% !important; }
       .ms-hero-inner h1 { font-size: 30px !important; }
@@ -50,7 +50,11 @@
       .ms-btnrow { flex-direction: column !important; width: 100% !important; }
       .ms-btnrow > div { width: 100% !important; height: auto !important; padding: 15px 20px !important; }
       .ms-btnrow > div > span { white-space: normal !important; font-size: 15px !important; text-align: center !important; }
-      .ms-play { left: 40% !important; right: auto !important; top: 50% !important; transform: translate(-50%, calc(-50% - 120px)) !important; width: 30px !important; height: auto !important; }
+      .ms-play { left: 50% !important; right: auto !important; top: 22% !important; transform: translate(-50%, -50%) !important; width: 70px !important; height: auto !important; }
+      /* keep long words / headings from breaking layout or leaving orphans */
+      .ms-hero-inner h1, .ms-encontro-text h2, .ms-familia-box h2, .ms-rota1-text h2, .ms-valeria h2, .ms-giano-textwrap h2, .ms-rota2-text h2 { overflow-wrap: break-word !important; text-wrap: balance !important; }
+      .ms-hero-inner p, .ms-encontro-text p, .ms-familia-box p, .ms-rota1-text p, .ms-valeria p, .ms-giano-textwrap p, .ms-rota2-text p { overflow-wrap: break-word !important; text-wrap: pretty !important; }
+      .ms-footer-row a, .ms-footer-row span { overflow-wrap: anywhere !important; }
 
       /* ENCONTRO */
       .ms-encontro { flex-direction: column !important; padding: 48px 22px !important; gap: 28px !important; }
@@ -105,6 +109,8 @@
       [data-om-label="rota"] { height: auto !important; margin-bottom: -46px !important; }
       .ms-rota2-inner { position: static !important; flex-direction: column !important; }
       .ms-rota2-text { width: 100% !important; padding: 48px 22px !important; }
+      .ms-rota2-text > div { width: auto !important; height: auto !important; max-width: 100% !important; }
+      .ms-rota2-text p { max-width: 100% !important; }
       .ms-rota2-text h2 { width: auto !important; font-size: 30px !important; }
       .ms-rota2-text p { width: auto !important; height: auto !important; font-size: 16px !important; }
       .ms-rota2-text > div:last-child { width: 100% !important; }
@@ -248,6 +254,27 @@
     @media (min-width: 2560px) { .ms-root { zoom: 1.74; } }
     @media (min-width: 3200px) { .ms-root { zoom: 2.15; } }
     @media (min-width: 3840px) { .ms-root { zoom: 2.6; } }
+
+    /* ---------- CTA HOVER ---------- */
+    .ms-cta { transition: transform .25s ease, box-shadow .25s ease, filter .25s ease, background-color .25s ease; }
+    .ms-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(35,1,0,0.30); filter: brightness(1.08); }
+    .ms-cta:active { transform: translateY(-1px); }
+    .ms-cta-outline:hover { filter: none; background-color: rgba(255,255,255,0.14); box-shadow: inset 0 0 0 1px rgb(255,255,255), 0 14px 28px rgba(35,1,0,0.22); }
+    .ms-cta .ms-cup { flex-shrink: 0; transition: transform .25s ease; }
+    .ms-cta:hover .ms-cup { transform: translateY(-1px) rotate(-6deg); }
+
+    /* ---------- APPEAR ON SCROLL (gated: no-JS / reduced-motion show everything) ---------- */
+    @media (prefers-reduced-motion: no-preference) {
+      body.ms-reveal-on .ms-reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s cubic-bezier(.16,.7,.3,1), transform .8s cubic-bezier(.16,.7,.3,1); will-change: opacity, transform; }
+      body.ms-reveal-on .ms-reveal.ms-in { opacity: 1; transform: none; }
+
+      /* Valéria gallery — each photo pops in LARGER then settles into its cell, cascading out from the centre */
+      body.ms-gallery-on .ms-gcell { position: relative; opacity: 0; transform: scale(1.85); z-index: 4; transition: opacity .55s ease, transform .85s cubic-bezier(.18,.82,.25,1); will-change: opacity, transform; }
+      body.ms-gallery-on .ms-gcell.ms-in { opacity: 1; transform: scale(1); z-index: 1; }
+      /* the central portrait (Valéria) stays enlarged and raised for emphasis */
+      body.ms-gallery-on .ms-gcenter { z-index: 6; opacity: 0; transform: scale(2.7); }
+      body.ms-gallery-on .ms-gcenter.ms-in { opacity: 1; transform: scale(1.55); z-index: 5; box-shadow: 0 30px 70px rgba(35,1,0,0.45); border-radius: 8px; }
+    }
   </style>
 </helmet>
 <div class="ms-root" style="max-width:1440px;margin:0 auto;background:var(--cream);font-family:var(--font-sans);position:relative;">
@@ -276,21 +303,23 @@
         <p style="margin:0;font-family:var(--font-sans);font-size:24px;line-height:100%;color:rgb(255,255,255);">Uma fazenda de família. Tecnologia no campo, arte nas telas, prêmios na xícara.</p>
       </div>
       <div class="ms-btnrow" style="display:flex;flex-direction:row;gap:10px;align-items:flex-start;flex-shrink:0;">
-        <div style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+        <div class="ms-cta" style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+          <svg class="ms-cup" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H8a4 4 0 0 1-4-4V8Z"></path><path d="M17 9h2.2a2.4 2.4 0 0 1 0 4.8H17"></path><path d="M7.5 2.2c-.5.7-.5 1.5 0 2.2M11 2.2c-.5.7-.5 1.5 0 2.2"></path></svg>
           <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.1; color: rgb(255,255,255)">Agendar Visita</span>
         </div>
-        <div style="height:66px;border-radius:16px;box-shadow:inset 0 0 0 1px rgb(255,255,255);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+        <div class="ms-cta ms-cta-outline" style="height:66px;border-radius:16px;box-shadow:inset 0 0 0 1px rgb(255,255,255);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+          <svg class="ms-cup" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H8a4 4 0 0 1-4-4V8Z"></path><path d="M17 9h2.2a2.4 2.4 0 0 1 0 4.8H17"></path><path d="M7.5 2.2c-.5.7-.5 1.5 0 2.2M11 2.2c-.5.7-.5 1.5 0 2.2"></path></svg>
           <span style="font-family: Montserrat; font-size: 20px; white-space: nowrap; line-height: 1.1; color: rgb(255,255,255)">Conhecer o Encontro Nacional do Café</span>
         </div>
       </div>
       <!-- Play button — opens video popup -->
-      <div class="ms-play" onClick="{{ openVideo }}" style="position:absolute;right:24%;top:50%;transform:translateY(-50%);width:139px;height:147px;cursor:pointer;opacity:0.9;" style-hover="opacity:1;transform:translateY(-50%) scale(1.06);">
+      <div class="ms-play" onClick="{{ openVideo }}" style="position:absolute;right:24%;top:50%;transform:translateY(-50%);width:111px;height:auto;aspect-ratio:139/147;cursor:pointer;opacity:0.9;" style-hover="opacity:1;transform:translateY(-50%) scale(1.06);">
         
-      <svg width="139" height="147" viewBox="0 0 139 147" fill="rgb(255,255,255)">
+      <svg width="100%" height="100%" viewBox="0 0 139 147" fill="rgb(255,255,255)" style="display:block;">
           <path d="M 127.365 54.045 C 130.879 55.922 133.818 58.725 135.867 62.152 C 137.917 65.579 139 69.502 139 73.5 C 139 77.498 137.917 81.421 135.867 84.848 C 133.818 88.275 130.879 91.078 127.365 92.955 L 33.632 144.161 C 18.539 152.415 0 141.684 0 124.713 L 0 22.294 C 0 5.316 18.539 -5.407 33.632 2.832 L 127.365 54.045 Z" fill-rule="nonzero"></path>
         </svg></div>
     </div>
-  </div><div class="ms-encontro" id="encontro" style="padding: 88px 50px; display: flex; gap: 144px; align-items: flex-start; justify-content: space-between; background-color: rgb(246,242,231)">
+  </div><div class="ms-encontro ms-reveal" id="encontro" style="padding: 88px 50px; display: flex; gap: 144px; align-items: flex-start; justify-content: space-between; background-color: rgb(246,242,231)">
     
     <div class="ms-encontro-media" style="flex: 0 0 45%; max-width: 497px; display: flex; flex-direction: column; align-items: center; width: 100%; height: 581px; flex-wrap: nowrap; position: sticky">
       <div style="aspect-ratio:497/492;width:100%;position:relative;">
@@ -304,13 +333,14 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg>
         </div>
       </div>
-    </div><div class="ms-encontro-text" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; align-items: flex-start; width: 554px"><span style="font-family:var(--font-sans);font-size:24px;line-height:1.2;color:var(--text-primary);">Encontro Nacional do café</span><h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.2; color: var(--text-primary); width: 403px">O café do Brasil inteiro <br>vem parar aqui.</h2><p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 511px; font-weight: 300">O Encontro Nacional do Café reúne produtores, pesquisadores, autoridades e mais de 100 empresas de vários estados, tudo dentro da Fazenda Vidigal.<br><br>Tecnologia, cultura e negócio, no mesmo evento, uma vez por ano.</p><div style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+    </div><div class="ms-encontro-text" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; align-items: flex-start; width: 554px"><span style="font-family:var(--font-sans);font-size:24px;line-height:1.2;color:var(--text-primary);">Encontro Nacional do café</span><h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.2; color: var(--text-primary); width: 403px">O café do Brasil inteiro <br>vem parar aqui.</h2><p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 511px; font-weight: 300">O Encontro Nacional do Café reúne produtores, pesquisadores, autoridades e mais de 100 empresas de vários estados, tudo dentro da Fazenda Vidigal.<br><br>Tecnologia, cultura e negócio, no mesmo evento, uma vez por ano.</p><div class="ms-cta" style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+        <svg class="ms-cup" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H8a4 4 0 0 1-4-4V8Z"></path><path d="M17 9h2.2a2.4 2.4 0 0 1 0 4.8H17"></path><path d="M7.5 2.2c-.5.7-.5 1.5 0 2.2M11 2.2c-.5.7-.5 1.5 0 2.2"></path></svg>
         <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.2; color: rgb(255,255,255)">Conheça o Encontro Nacional do Café</span>
       </div></div>
   </div>
 
   <!-- FAMÍLIA — text contained in box -->
-  <div class="ms-familia" id="familia" style="position: relative; height: 867px; overflow: hidden; background: url(&quot;./assets/opt/frame-4.png&quot;) center / cover no-repeat">
+  <div class="ms-familia ms-reveal" id="familia" style="position: relative; height: 867px; overflow: hidden; background: url(&quot;./assets/opt/frame-4.png&quot;) center / cover no-repeat">
     <div class="ms-familia-box" style="position: absolute; left: 50px; top: 41px; width: 540px; height: 770px; border-radius: 20px; background-color: rgb(246,242,231); padding: 50px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; overflow: hidden; padding-top: 47px; padding-right: 47px; padding-bottom: 47px; padding-left: 47px">
       <span style="font-family:var(--font-sans);font-size:22px;line-height:100%;color:var(--text-primary);">Fazenda Vidigal e Família</span>
       <h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 66px; line-height: 1.1; color: var(--text-primary)">Uma herança que atravessou três gerações até virar fazenda.</h2>
@@ -320,7 +350,7 @@
   </div>
 
   <!-- ROTA DO CAFÉ #1 (Session 4) — text on the right; bent/circular photo gallery on the left (CSS adaptation of React Bits "CircularGallery") -->
-  <div class="ms-rota1" id="rota" style="position:relative;height:700px;overflow:hidden;background-color:rgb(246,242,231);">
+  <div class="ms-rota1 ms-reveal" id="rota" style="position:relative;height:700px;overflow:hidden;background-color:rgb(246,242,231);">
     <div class="ms-circ" style="position: absolute; left: -125px; top: -3px; width: 745px; height: 765px; overflow: hidden">
       <div style="position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to bottom, rgb(246,242,231) 0%, transparent 22%, transparent 62%, rgb(246,242,231) 100%);"></div>
       <div style="position:absolute;left:0px;top:50%;width:0;height:0;animation:ringSpin 24s linear infinite;">
@@ -339,7 +369,8 @@
       <h2 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:48px;line-height:1.2;color:var(--text-primary);">Você pode passar a vida bebendo café. Ou passar um dia entendendo tudo o que existe antes dele.</h2>
       <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); font-weight: 300">A visita à Fazenda Vidigal é guiada e pensada para grupos: rota sensorial do café, colheita no pé, laboratório, degustação, espaço gourmet.</p>
       <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); font-weight: 300">Cada roteiro é montado para o seu grupo, do simples ao completo.</p>
-      <div style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+      <div class="ms-cta" style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+        <svg class="ms-cup" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H8a4 4 0 0 1-4-4V8Z"></path><path d="M17 9h2.2a2.4 2.4 0 0 1 0 4.8H17"></path><path d="M7.5 2.2c-.5.7-.5 1.5 0 2.2M11 2.2c-.5.7-.5 1.5 0 2.2"></path></svg>
         <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.2; color: rgb(255,255,255)">Quero fazer a rota do café!</span>
       </div>
     </div>
@@ -347,24 +378,24 @@
 
   <!-- GALERIA + VALÉRIA -->
   <div style="overflow:hidden;background-color:rgb(246,242,231);">
-    <div class="ms-grid" style="display:grid;grid-template-columns:repeat(5, 1fr);gap:0;">
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/product-01.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-01.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-02.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-03.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-04.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-05.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-06.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-07.png" alt="Valéria Vidigal" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-08.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/giano-bg.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-09.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/family-fazenda.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-10.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/footer-vista.jpg" hint-size="100%,100%"></x-import></div>
-      <div style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/hero-vista.jpg" hint-size="100%,100%"></x-import></div>
+    <div class="ms-grid ms-gallery" style="display:grid;grid-template-columns:repeat(5, 1fr);gap:0;">
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/product-01.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-01.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-02.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-03.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-04.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-05.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-06.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell ms-gcenter" style="aspect-ratio: 1; overflow: hidden; border-radius: 0px"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-07-hi.png" alt="Valéria Vidigal" hint-size="100%,100%" style="border-radius: 0px"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-08.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/giano-bg.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-09.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/family-fazenda.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-10.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/footer-vista.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/hero-vista.jpg" hint-size="100%,100%"></x-import></div>
     </div>
-    <div class="ms-valeria" id="valeria" style="display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center;max-width:753px;margin:0 auto;padding:40px 50px;">
+    <div class="ms-valeria ms-reveal" id="valeria" style="display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center;max-width:753px;margin:0 auto;padding:40px 50px;">
       <img src="./assets/logo-v-vidigal.png" alt="V. Vidigal" style="height:72px;width:180px;object-fit:contain;">
       <h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.1; color: var(--text-primary); text-align: center; width: 599px; height: 105px">Há mais de vinte anos, Valéria pinta uma coisa só: café.</h2>
       <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.4; color: var(--text-primary); text-align: center; font-weight: 300">Valéria Vidigal é artista plástica e cafeicultora. Suas telas retratam exclusivamente o universo do café da colheita à xícara e já passaram por mais de 100 exposições no Brasil e no exterior. Hoje, seu trabalho é referência para quem estuda a cultura cafeeira através da arte.</p>
@@ -372,7 +403,7 @@
   </div>
 
   <!-- GIANO — Frame 6 background -->
-  <div class="ms-giano" id="giano" style="background:url(./assets/opt/frame6-bg.png) center/cover no-repeat;padding:30px;display:flex;gap:30px;justify-content:center;align-items:center;">
+  <div class="ms-giano ms-reveal" id="giano" style="background:url(./assets/opt/frame6-bg.png) center/cover no-repeat;padding:30px;display:flex;gap:30px;justify-content:center;align-items:center;">
     <div class="ms-giano-portrait" style="width:675px;height:768px;border-radius:20px;background:url(./assets/opt/giano-portrait.png) center / cover no-repeat;flex-shrink:0;"></div>
     <div class="ms-giano-box" style="position:relative;width:675px;height:768px;border-radius:20px;background-color:rgb(246,242,231);flex-shrink:0;">
       <div class="ms-giano-textwrap" style="position:absolute;left:40px;top:72px;width:596px;display:flex;flex-direction:column;gap:20px;align-items:flex-start;">
@@ -388,7 +419,7 @@
 
   <!-- ROTA DO CAFÉ #2 — with 2×3 photo grid, rounded bottom, overlapping footer (matches Figma node 30:200) -->
   <!-- Outer shell: NO overflow:hidden here, so its own box-shadow paints past the rounded corners uninterrupted -->
-  <div style="position:relative;z-index:2;height:700px;border-radius:0 0 37px 37px;box-shadow:0 24px 48px rgba(35,1,0,0.18);margin-bottom:-87px;" data-om-label="rota">
+  <div class="ms-reveal" style="position:relative;z-index:2;height:700px;border-radius:0 0 37px 37px;box-shadow:0 24px 48px rgba(35,1,0,0.18);margin-bottom:-87px;" data-om-label="rota">
     <!-- Inner shell: owns overflow:hidden + the same radius, so only ITS content (bg + photos) clips into the rounded shape -->
     <div class="ms-rota2-inner" style="position:absolute;inset:0;overflow:hidden;border-radius:0 0 37px 37px;background-color:rgb(246,242,231);display:flex;">
     <div class="ms-rota2-text" style="flex: 0 0 auto; width: 746px; padding: 88px 0 0 50px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; border-radius: 0px; flex-grow: 0">
@@ -396,7 +427,8 @@
       <h2 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:48px;line-height:1.2;color:var(--text-primary);width:596px;">O prêmio começa antes da xícara.</h2>
       
       
-      <div style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 505px; font-weight: 300; height: 189px"><p class="p1" style="margin: 0px; font-style: normal; font-variant: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Montserrat; color: rgba(0, 0, 0, 0.85)">Café Vidigal é o resultado de duas décadas de método: colheita 100% manual, processos de despolpado e natural premiados em concursos nacionais.<span class="Apple-converted-space">&nbsp; <br></span><br>Cada safra carrega o mesmo padrão que colocou a fazenda entre as mais premiadas do Planalto da Conquista.</p></div><div style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+      <div style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 505px; font-weight: 300; height: 189px"><p class="p1" style="margin: 0px; font-style: normal; font-variant: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Montserrat; color: rgba(0, 0, 0, 0.85)">Café Vidigal é o resultado de duas décadas de método: colheita 100% manual, processos de despolpado e natural premiados em concursos nacionais.<span class="Apple-converted-space">&nbsp; <br></span><br>Cada safra carrega o mesmo padrão que colocou a fazenda entre as mais premiadas do Planalto da Conquista.</p></div><div class="ms-cta" style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+        <svg class="ms-cup" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H8a4 4 0 0 1-4-4V8Z"></path><path d="M17 9h2.2a2.4 2.4 0 0 1 0 4.8H17"></path><path d="M7.5 2.2c-.5.7-.5 1.5 0 2.2M11 2.2c-.5.7-.5 1.5 0 2.2"></path></svg>
         <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.2; color: rgb(255,255,255)">Quero conhecer o Café Vidigal!</span>
       </div>
     </div>
@@ -461,6 +493,59 @@
 class Component extends DCLogic {
   state = { showVideo: false };
   stackRef = React.createRef();
+
+  componentDidMount() {
+    const setup = () => {
+      try {
+        const els = Array.from(document.querySelectorAll('.ms-reveal'));
+        if (!els.length) return;
+        const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.body.classList.add('ms-reveal-on');
+        if (reduce || !('IntersectionObserver' in window)) {
+          els.forEach(e => e.classList.add('ms-in'));
+          return;
+        }
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(en => {
+            if (en.isIntersecting) { en.target.classList.add('ms-in'); io.unobserve(en.target); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        els.forEach(e => {
+          // already-in-view elements reveal immediately
+          const r = e.getBoundingClientRect();
+          if (r.top < window.innerHeight * 0.92) e.classList.add('ms-in');
+          else io.observe(e);
+        });
+
+        // --- Valéria gallery: staggered scale-in cascading from the centre photo ---
+        const gallery = document.querySelector('.ms-gallery');
+        if (gallery) {
+          const cols = 5, centerR = 1, centerC = 2, step = 95;
+          const cells = Array.from(gallery.querySelectorAll('.ms-gcell'));
+          const ordered = cells
+            .map((el, i) => ({ el, d: Math.max(Math.abs(Math.floor(i / cols) - centerR), Math.abs((i % cols) - centerC)) }))
+            .sort((a, b) => a.d - b.d);
+          if (reduce || !('IntersectionObserver' in window)) {
+            document.body.classList.add('ms-gallery-on');
+            ordered.forEach(o => o.el.classList.add('ms-in'));
+          } else {
+            document.body.classList.add('ms-gallery-on');
+            const fire = () => ordered.forEach((o, idx) => {
+              o.el.style.transitionDelay = (idx * step) + 'ms';
+              requestAnimationFrame(() => requestAnimationFrame(() => o.el.classList.add('ms-in')));
+            });
+            const gio = new IntersectionObserver((ents) => {
+              ents.forEach(en => { if (en.isIntersecting) { fire(); gio.disconnect(); } });
+            }, { threshold: 0.18 });
+            const gr = gallery.getBoundingClientRect();
+            if (gr.top < window.innerHeight * 0.85 && gr.bottom > 0) fire();
+            else gio.observe(gallery);
+          }
+        }
+      } catch (e) {}
+    };
+    setTimeout(setup, 160);
+  }
 
   renderVals() {
     const encontroFiles = ['gallery-04.jpg', 'gallery-09.jpg', 'gallery-01.jpg', 'family-fazenda.jpg'];
