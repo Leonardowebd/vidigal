@@ -238,14 +238,24 @@
       .ms-footer { height: 560px !important; }
       .ms-footer img { height: 72px !important; }
     }
+
+    /* ---------- LARGE MONITORS ( ≥ 1600 ) — scale the whole 1440 composition up ---------- */
+    /* Keeps the exact layout; zoom scales layout + scroll height correctly so nothing shifts. */
+    html, body { background: var(--cream); }
+    @media (min-width: 1600px) { .ms-root { zoom: 1.12; } }
+    @media (min-width: 1920px) { .ms-root { zoom: 1.33; } }
+    @media (min-width: 2304px) { .ms-root { zoom: 1.58; } }
+    @media (min-width: 2560px) { .ms-root { zoom: 1.74; } }
+    @media (min-width: 3200px) { .ms-root { zoom: 2.15; } }
+    @media (min-width: 3840px) { .ms-root { zoom: 2.6; } }
   </style>
 </helmet>
-<div style="max-width:1440px;margin:0 auto;background:var(--cream);font-family:var(--font-sans);position:relative;">
+<div class="ms-root" style="max-width:1440px;margin:0 auto;background:var(--cream);font-family:var(--font-sans);position:relative;">
 
   <div style="position: relative; z-index: 1; background: var(--cream); border-radius: 49px">
 
   <!-- HERO — 828px section, 772px inner -->
-  
+
 
   <!-- VIDEO MODAL -->
   <sc-if value="{{ showVideo }}" hint-placeholder-val="{{ false }}">
@@ -258,7 +268,7 @@
 
   <!-- ENCONTRO NACIONAL DO CAFÉ — carousel with arrows + text right -->
   <div class="ms-hero" style="position: relative; height: 632px; overflow: hidden; background-color: rgb(246,242,231)">
-    <div class="ms-hero-inner" style="position: absolute; left: 30px; top: 26px; width: 1091px; height: 576px; border-radius: 34px; background: linear-gradient(rgba(35,1,0,0.52),rgba(35,1,0,0.52)), url(./assets/photos/hero-vista.jpg) center / cover no-repeat; display: flex; flex-direction: column; gap: 29px; padding: 10px 30px; justify-content: center; align-items: flex-start; box-sizing: border-box">
+    <div class="ms-hero-inner" style="position: absolute; left: 30px; right: 30px; top: 26px; width: auto; height: 576px; border-radius: 34px; background: linear-gradient(rgba(35,1,0,0.52),rgba(35,1,0,0.52)), url(./assets/photos/hero-vista.jpg) center / cover no-repeat; display: flex; flex-direction: column; gap: 29px; padding: 10px 30px; justify-content: center; align-items: flex-start; box-sizing: border-box">
       <img class="ms-hero-logo" src="./captura-de-tela-2026-07-08-a-s-18-40-33--mreapqle.png" alt="Fazenda Vidigal" style="width:258.652px;height:95px;object-fit:contain;object-position:left center;">
       <div class="ms-copy" style="width:596px;display:flex;flex-direction:column;gap:10px;align-items:flex-start;flex-shrink:0;">
         <span style="font-family:var(--font-sans);font-size:24px;line-height:100%;color:rgb(255,255,255);">Barra do Choça · Planalto da Conquista · Bahia</span>
@@ -274,14 +284,14 @@
         </div>
       </div>
       <!-- Play button — opens video popup -->
-      <div class="ms-play" onClick="{{ openVideo }}" style="position:absolute;left:946px;top:340px;width:139px;height:147px;cursor:pointer;opacity:0.9;" style-hover="opacity:1;transform:scale(1.06);">
-        
+      <div class="ms-play" onClick="{{ openVideo }}" style="position:absolute;right:24%;top:340px;width:139px;height:147px;cursor:pointer;opacity:0.9;" style-hover="opacity:1;transform:scale(1.06);">
+
       <svg width="139" height="147" viewBox="0 0 139 147" fill="rgb(255,255,255)">
           <path d="M 127.365 54.045 C 130.879 55.922 133.818 58.725 135.867 62.152 C 137.917 65.579 139 69.502 139 73.5 C 139 77.498 137.917 81.421 135.867 84.848 C 133.818 88.275 130.879 91.078 127.365 92.955 L 33.632 144.161 C 18.539 152.415 0 141.684 0 124.713 L 0 22.294 C 0 5.316 18.539 -5.407 33.632 2.832 L 127.365 54.045 Z" fill-rule="nonzero"></path>
         </svg></div>
     </div>
-  </div><div class="ms-encontro" style="padding: 88px 50px; display: flex; gap: 144px; align-items: flex-start; justify-content: space-between">
-    
+  </div><div class="ms-encontro" style="padding: 88px 50px; display: flex; gap: 144px; align-items: flex-start; justify-content: space-between; background-color: rgb(246,242,231)">
+
     <div class="ms-encontro-media" style="flex: 0 0 45%; max-width: 497px; display: flex; flex-direction: column; align-items: center; width: 100%; height: 581px; flex-wrap: nowrap; position: sticky">
       <div style="aspect-ratio:497/492;width:100%;position:relative;">
         <x-import component-from-global-scope="Stack" from="./Stack.jsx" ref="{{ stackRef }}" cards="{{ encontroCards }}" sensitivity="{{ 180 }}" hint-size="100%,100%">Stack</x-import>
@@ -294,7 +304,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg>
         </div>
       </div>
-    </div><div class="ms-encontro-text" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; align-items: flex-start; width: 554px; height: 308px"><span style="font-family:var(--font-sans);font-size:24px;line-height:1.2;color:var(--text-primary);">Encontro Nacional do café</span><h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.2; color: var(--text-primary); width: 403px; height: 122px">O café do Brasil inteiro <br>vem parar aqui.</h2><p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 511px; height: 105px; font-weight: 300">O Encontro Nacional do Café reúne produtores, pesquisadores, autoridades e mais de 100 empresas de vários estados, tudo dentro da Fazenda Vidigal.<br><br>Tecnologia, cultura e negócio, no mesmo evento, uma vez por ano.</p><div style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+    </div><div class="ms-encontro-text" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; align-items: flex-start; width: 554px"><span style="font-family:var(--font-sans);font-size:24px;line-height:1.2;color:var(--text-primary);">Encontro Nacional do café</span><h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.2; color: var(--text-primary); width: 403px">O café do Brasil inteiro <br>vem parar aqui.</h2><p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 511px; font-weight: 300">O Encontro Nacional do Café reúne produtores, pesquisadores, autoridades e mais de 100 empresas de vários estados, tudo dentro da Fazenda Vidigal.<br><br>Tecnologia, cultura e negócio, no mesmo evento, uma vez por ano.</p><div style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
         <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.2; color: rgb(255,255,255)">Conheça o Encontro Nacional do Café</span>
       </div></div>
   </div>
@@ -304,7 +314,7 @@
     <div class="ms-familia-box" style="position: absolute; left: 50px; top: 41px; width: 540px; height: 770px; border-radius: 20px; background-color: rgb(246,242,231); padding: 50px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; overflow: hidden; padding-top: 47px; padding-right: 47px; padding-bottom: 47px; padding-left: 47px">
       <span style="font-family:var(--font-sans);font-size:22px;line-height:100%;color:var(--text-primary);">Fazenda Vidigal e Família</span>
       <h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 66px; line-height: 1.1; color: var(--text-primary)">Uma herança que atravessou três gerações até virar fazenda.</h2>
-      
+
       <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.4; color: var(--text-primary); font-weight: 200">A relação da família com o café começou em Viçosa, Minas Gerais, na torrefação dos avós de Valéria Vidigal. Décadas depois, ela e o engenheiro agrônomo Giano Brito replantaram essa história no Planalto da Conquista, na Bahia ela com a arte, ele com a ciência do campo.</p><p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.4; color: var(--text-primary); font-weight: 200">Hoje, Rafaela, Isabela e Renato crescem dentro da mesma lavoura, e a Fazenda Vidigal também virou sede de um dos maiores encontros de café do Brasil.</p>
     </div>
   </div>
@@ -366,11 +376,11 @@
     <div class="ms-giano-portrait" style="width:675px;height:768px;border-radius:20px;background:url(./assets/photos/giano-portrait.png) center / cover no-repeat;flex-shrink:0;"></div>
     <div class="ms-giano-box" style="position:relative;width:675px;height:768px;border-radius:20px;background-color:rgb(246,242,231);flex-shrink:0;">
       <div class="ms-giano-textwrap" style="position:absolute;left:40px;top:72px;width:596px;display:flex;flex-direction:column;gap:20px;align-items:flex-start;">
-        
+
       <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;">
           <h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.1; color: var(--text-primary); width: 417px; height: 173px">Há mais de vinte anos, ele decide cada etapa antes que o grão exista.</h2>
           <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.4; color: var(--text-primary)">Giano Brito é engenheiro agrônomo e o responsável técnico da Fazenda Vidigal. Escolhe as mudas, conduz o cultivo e define os processos de colheita e pós-colheita a ciência por trás de cada prêmio que a fazenda recebe.<br><br>É também um dos organizadores do Encontro Nacional do Café ao lado de Valéria Vidigal e Márcia Viana, evento que reúne o setor cafeeiro do Brasil inteiro na fazenda desde 2007.</p>
-          
+
         </div></div>
       <img src="./logovidigla-mrevb200.png" alt="Fazenda Vidigal" style="position: absolute; left: 561px; top: 651px; width: 91px; height: 96px; object-fit: contain">
     </div>
@@ -384,8 +394,8 @@
     <div class="ms-rota2-text" style="flex: 0 0 auto; width: 746px; padding: 88px 0 0 50px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; border-radius: 0px; flex-grow: 0">
       <span style="font-family:var(--font-sans);font-size:24px;line-height:1.2;color:var(--text-primary);">Rota do Café</span>
       <h2 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:48px;line-height:1.2;color:var(--text-primary);width:596px;">Você pode passar a vida bebendo café. Ou passar um dia entendendo tudo o que existe antes dele.</h2>
-      
-      
+
+
       <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 505px; font-weight: 300; height: 189px">A visita à Fazenda Vidigal é guiada e pensada para grupos: rota sensorial do café, colheita no pé, laboratório, degustação, espaço gourmet.<br><br>Cada roteiro é montado para o seu grupo, do simples ao completo.</p><div style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
         <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.2; color: rgb(255,255,255)">Quero fazer a rota do café!</span>
       </div>
