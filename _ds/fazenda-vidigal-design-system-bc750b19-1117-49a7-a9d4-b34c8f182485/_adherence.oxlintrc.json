@@ -1,0 +1,249 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/core/**",
+              "deploy/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Century Schoolbook|Montserrat))/i]",
+        "message": "Font not provided by the design system. Available: Century Schoolbook, Montserrat."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|href|children|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, href, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|secondary-onlight)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary' | 'secondary-onlight'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:lg|sm)$/]",
+        "message": "<Button> size must be one of 'lg' | 'sm'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FeatureCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:photo|eyebrow|heading|body|panelTone|panelAlign|height|key|ref|className|style|children)$/]",
+        "message": "<FeatureCard> doesn't accept that prop. Declared props: photo, eyebrow, heading, body, panelTone, panelAlign, height."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FeatureCard'] > JSXAttribute[name.name='panelTone'] > Literal[value!=/^(?:cream|olive)$/]",
+        "message": "<FeatureCard> panelTone must be one of 'cream' | 'olive'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FeatureCard'] > JSXAttribute[name.name='panelAlign'] > Literal[value!=/^(?:left|right)$/]",
+        "message": "<FeatureCard> panelAlign must be one of 'left' | 'right'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Footer'] > JSXAttribute > JSXIdentifier[name!=/^(?:photo|logo|signature|navLinks|contact|address|tagline|key|ref|className|style|children)$/]",
+        "message": "<Footer> doesn't accept that prop. Declared props: photo, logo, signature, navLinks, contact, address, tagline."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Navbar'] > JSXAttribute > JSXIdentifier[name!=/^(?:logo|links|ctaLabel|tone|key|ref|className|style|children)$/]",
+        "message": "<Navbar> doesn't accept that prop. Declared props: logo, links, ctaLabel, tone."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Navbar'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:light|dark)$/]",
+        "message": "<Navbar> tone must be one of 'light' | 'dark'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PhotoTile'] > JSXAttribute > JSXIdentifier[name!=/^(?:src|alt|radius|key|ref|className|style|children)$/]",
+        "message": "<PhotoTile> doesn't accept that prop. Declared props: src, alt, radius."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionIntro'] > JSXAttribute > JSXIdentifier[name!=/^(?:eyebrow|heading|body|tone|maxWidth|key|ref|className|style|children)$/]",
+        "message": "<SectionIntro> doesn't accept that prop. Declared props: eyebrow, heading, body, tone, maxWidth."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionIntro'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:dark|light)$/]",
+        "message": "<SectionIntro> tone must be one of 'dark' | 'light'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "FeatureCard": {
+        "replaces": []
+      },
+      "Footer": {
+        "replaces": []
+      },
+      "Navbar": {
+        "replaces": []
+      },
+      "PhotoTile": {
+        "replaces": []
+      },
+      "SectionIntro": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--action-primary-bg",
+      "--action-primary-bg-hover",
+      "--action-primary-text",
+      "--action-secondary-border",
+      "--action-secondary-border-onlight",
+      "--action-secondary-text",
+      "--action-secondary-text-onlight",
+      "--border-hairline",
+      "--charcoal",
+      "--charcoal-2",
+      "--cream",
+      "--dusty-rose",
+      "--font-sans",
+      "--font-serif",
+      "--forest",
+      "--maroon",
+      "--maroon-deep",
+      "--maroon-shadow",
+      "--mauve",
+      "--navy",
+      "--offwhite",
+      "--olive",
+      "--olive-deep",
+      "--olive-light",
+      "--olive-light-2",
+      "--olive-mid",
+      "--olive-muted",
+      "--olive-pale",
+      "--placeholder-gray",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-sm",
+      "--radius-xl",
+      "--shadow-inset-hairline",
+      "--space-1",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--surface-card",
+      "--surface-card-alt",
+      "--surface-inverse-overlay",
+      "--surface-page",
+      "--surface-wash-olive",
+      "--text-body",
+      "--text-button",
+      "--text-button-sm",
+      "--text-display",
+      "--text-eyebrow",
+      "--text-heading",
+      "--text-heading-sm",
+      "--text-on-dark",
+      "--text-on-olive",
+      "--text-primary",
+      "--warm-gray",
+      "--white"
+    ],
+    "tokenKinds": {
+      "--cream": "color",
+      "--white": "color",
+      "--charcoal": "color",
+      "--charcoal-2": "color",
+      "--maroon": "color",
+      "--maroon-deep": "color",
+      "--maroon-shadow": "shadow",
+      "--olive": "color",
+      "--olive-mid": "color",
+      "--olive-deep": "color",
+      "--olive-muted": "color",
+      "--olive-pale": "color",
+      "--olive-light": "color",
+      "--olive-light-2": "color",
+      "--forest": "color",
+      "--dusty-rose": "color",
+      "--mauve": "color",
+      "--offwhite": "color",
+      "--warm-gray": "color",
+      "--navy": "color",
+      "--placeholder-gray": "color",
+      "--surface-page": "color",
+      "--surface-card": "color",
+      "--surface-card-alt": "color",
+      "--surface-wash-olive": "color",
+      "--surface-inverse-overlay": "color",
+      "--text-primary": "font",
+      "--text-on-dark": "font",
+      "--text-on-olive": "font",
+      "--action-primary-bg": "color",
+      "--action-primary-bg-hover": "color",
+      "--action-primary-text": "font",
+      "--action-secondary-border": "color",
+      "--action-secondary-border-onlight": "color",
+      "--action-secondary-text": "font",
+      "--action-secondary-text-onlight": "font",
+      "--border-hairline": "color",
+      "--font-serif": "font",
+      "--font-sans": "font",
+      "--text-display": "font",
+      "--text-heading": "font",
+      "--text-heading-sm": "font",
+      "--text-eyebrow": "font",
+      "--text-body": "font",
+      "--text-button": "font",
+      "--text-button-sm": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-xl": "radius",
+      "--shadow-inset-hairline": "shadow"
+    },
+    "fontFamilies": [
+      "Century Schoolbook",
+      "Montserrat"
+    ]
+  }
+}

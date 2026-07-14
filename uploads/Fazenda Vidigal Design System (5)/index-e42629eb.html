@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<rect width="100" height="100" fill="rgb(35,1,0)"/>
+<text x="50" y="60" font-size="34" font-family="Georgia,serif" fill="rgb(246,242,231)" text-anchor="middle">FV</text>
+</svg>
+</template>
+<x-dc>
+<!-- @template name="Marketing Site" description="Fazenda Vidigal landing page: hero, story sections, photo gallery, footer" -->
+<helmet>
+  <script src="./ds-base.js"></script>
+  <style>
+    @keyframes scrollUp {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+    @keyframes scrollDown {
+      0% { transform: translateY(-50%); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes circGalleryScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes ringSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes ringCounterSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-360deg); }
+    }
+
+    /* ---------- MOBILE ( <= 768px ) ---------- */
+    @media (max-width: 768px) {
+      /* HERO */
+      .ms-hero { height: auto !important; }
+      .ms-hero-inner { position: relative !important; left: auto !important; right: auto !important; top: auto !important; width: auto !important; height: auto !important; min-height: 82vh !important; margin: 12px !important; padding: 44px 22px !important; gap: 20px !important; justify-content: flex-end !important; }
+      .ms-hero-logo { width: 168px !important; height: auto !important; }
+      .ms-copy { width: 100% !important; }
+      .ms-hero-inner h1 { font-size: 30px !important; }
+      .ms-hero-inner p, .ms-hero-inner > .ms-copy > span { font-size: 15px !important; }
+      .ms-btnrow { flex-direction: column !important; width: 100% !important; }
+      .ms-btnrow > div { width: 100% !important; height: auto !important; padding: 15px 20px !important; }
+      .ms-btnrow > div > span { white-space: normal !important; font-size: 15px !important; text-align: center !important; }
+      .ms-play { left: 50% !important; right: auto !important; top: 22% !important; transform: translate(-50%, -50%) !important; width: 70px !important; height: auto !important; }
+      /* keep long words / headings from breaking layout or leaving orphans */
+      .ms-hero-inner h1, .ms-encontro-text h2, .ms-familia-box h2, .ms-rota1-text h2, .ms-valeria h2, .ms-giano-textwrap h2, .ms-rota2-text h2 { overflow-wrap: break-word !important; text-wrap: balance !important; }
+      .ms-hero-inner p, .ms-encontro-text p, .ms-familia-box p, .ms-rota1-text p, .ms-valeria p, .ms-giano-textwrap p, .ms-rota2-text p { overflow-wrap: break-word !important; text-wrap: pretty !important; }
+      .ms-footer-row a, .ms-footer-row span { overflow-wrap: anywhere !important; }
+
+      /* ENCONTRO */
+      .ms-encontro { flex-direction: column !important; padding: 48px 22px !important; gap: 28px !important; }
+      .ms-encontro-media { width: 100% !important; max-width: none !important; height: auto !important; position: static !important; }
+      .ms-encontro-media > div:first-child { width: 100% !important; max-width: 340px !important; margin: 0 auto !important; aspect-ratio: 1 / 1 !important; }
+      .ms-encontro-text { width: 100% !important; height: auto !important; }
+      .ms-encontro-text h2 { width: auto !important; height: auto !important; font-size: 30px !important; }
+      .ms-encontro-text p { width: auto !important; height: auto !important; font-size: 16px !important; }
+      .ms-encontro-text > div:last-child { height: auto !important; width: 100% !important; }
+      .ms-encontro-text > div:last-child span { white-space: normal !important; font-size: 15px !important; text-align: center !important; }
+
+      /* FAMÍLIA */
+      .ms-familia { height: auto !important; min-height: 96vh !important; display: flex !important; align-items: flex-end !important; padding: 0 !important; }
+      .ms-familia-box { position: static !important; left: auto !important; top: auto !important; width: auto !important; height: auto !important; margin: 22px !important; padding: 32px !important; }
+      .ms-familia-box h2 { font-size: 34px !important; }
+      .ms-familia-box p, .ms-familia-box > span { font-size: 15px !important; }
+
+      /* ROTA #1 — show the TOP arc of the orbit; box + gradient stay put, only the ring pivot moves */
+      .ms-rota1 { height: auto !important; display: flex !important; flex-direction: column !important; }
+      .ms-circ { display: block !important; order: -1 !important; position: relative !important; left: auto !important; top: auto !important; width: 100% !important; height: 380px !important; transform: none !important; margin: 0 !important; }
+      .ms-circ > div:last-child { left: 50% !important; top: 470px !important; scale: 0.66 !important; }
+      .ms-circ > div:last-child > div:nth-child(1) { transform: rotate(0deg) translate(430px) rotate(0deg) !important; }
+      .ms-circ > div:last-child > div:nth-child(2) { transform: rotate(45deg) translate(430px) rotate(-45deg) !important; }
+      .ms-circ > div:last-child > div:nth-child(3) { transform: rotate(90deg) translate(430px) rotate(-90deg) !important; }
+      .ms-circ > div:last-child > div:nth-child(4) { transform: rotate(135deg) translate(430px) rotate(-135deg) !important; }
+      .ms-circ > div:last-child > div:nth-child(5) { transform: rotate(180deg) translate(430px) rotate(-180deg) !important; }
+      .ms-circ > div:last-child > div:nth-child(6) { transform: rotate(225deg) translate(430px) rotate(-225deg) !important; }
+      .ms-circ > div:last-child > div:nth-child(7) { transform: rotate(270deg) translate(430px) rotate(-270deg) !important; }
+      .ms-circ > div:last-child > div:nth-child(8) { transform: rotate(315deg) translate(430px) rotate(-315deg) !important; }
+      .ms-rota1-text { position: static !important; left: auto !important; top: auto !important; width: auto !important; padding: 48px 22px !important; }
+      .ms-rota1-text h2 { font-size: 30px !important; }
+      .ms-rota1-text p { font-size: 16px !important; }
+      .ms-rota1-text > div:last-child { height: auto !important; width: 100% !important; }
+      .ms-rota1-text > div:last-child span { white-space: normal !important; font-size: 15px !important; text-align: center !important; }
+
+      /* GALERIA grid → 3 columns */
+      .ms-grid { grid-template-columns: repeat(3, 1fr) !important; }
+      .ms-valeria { width: auto !important; max-width: none !important; padding: 34px 22px !important; }
+      .ms-valeria h2 { width: auto !important; height: auto !important; font-size: 30px !important; }
+      .ms-valeria p { font-size: 16px !important; }
+
+      /* GIANO */
+      .ms-giano { flex-direction: column !important; padding: 18px !important; gap: 16px !important; }
+      .ms-giano-portrait { width: 100% !important; height: 360px !important; }
+      .ms-giano-box { width: 100% !important; height: auto !important; min-height: 520px !important; }
+      .ms-giano-textwrap { position: static !important; left: auto !important; top: auto !important; width: auto !important; padding: 40px 28px !important; }
+      .ms-giano-textwrap h2 { width: auto !important; height: auto !important; font-size: 30px !important; }
+      .ms-giano-textwrap p { font-size: 16px !important; }
+      .ms-giano-box > img { left: auto !important; right: 24px !important; top: auto !important; bottom: 24px !important; }
+
+      /* ROTA #2 — stack text over photos, keep rounded-bottom reveal */
+      [data-om-label="rota"] { height: auto !important; margin-bottom: -46px !important; }
+      .ms-rota2-inner { position: static !important; flex-direction: column !important; }
+      .ms-rota2-text { width: 100% !important; padding: 48px 22px !important; }
+      .ms-rota2-text > div { width: auto !important; height: auto !important; max-width: 100% !important; }
+      .ms-rota2-text p { max-width: 100% !important; }
+      .ms-rota2-text h2 { width: auto !important; font-size: 30px !important; }
+      .ms-rota2-text p { width: auto !important; height: auto !important; font-size: 16px !important; }
+      .ms-rota2-text > div:last-child { width: 100% !important; }
+      .ms-rota2-text > div:last-child span { white-space: normal !important; font-size: 15px !important; text-align: center !important; }
+      .ms-rota2-photos { height: 320px !important; flex: none !important; width: 100% !important; }
+
+      /* FOOTER */
+      .ms-footer { height: 620px !important; }
+      .ms-footer img { height: 60px !important; }
+      .ms-footer-info { padding: 60px 22px 32px !important; gap: 12px !important; }
+      .ms-footer-loc { font-size: 17px !important; }
+      .ms-footer-info .ms-footer-row { font-size: 14px !important; gap: 4px 10px !important; }
+      .ms-footer-info > div:last-child { font-size: 16px !important; }
+    }
+
+    /* ---------- NOTEBOOK / LANDSCAPE TABLET ( 1024–1439 ) ---------- */
+    /* Keeps the 1440 composition; fixed-width absolutes become fluid insets so
+       nothing clips, and every type size scales between a min and max guide. */
+    @media (min-width: 1024px) and (max-width: 1439.98px) {
+      /* HERO */
+      .ms-hero-inner { left: 31px !important; right: 31px !important; width: auto !important; padding: 10px clamp(24px,2.4vw,30px) !important; }
+      .ms-hero-logo { width: clamp(200px,17vw,258.652px) !important; }
+      .ms-copy { width: min(596px, 52%) !important; }
+      .ms-hero-inner h1 { font-size: clamp(34px,3.6vw,48px) !important; }
+      .ms-hero-inner p, .ms-copy > span { font-size: clamp(18px,1.7vw,24px) !important; }
+      .ms-btnrow { flex-wrap: wrap !important; }
+      .ms-btnrow > div { padding: 18px clamp(28px,3vw,56px) !important; }
+      .ms-btnrow > div > span { font-size: clamp(18px,1.6vw,24px) !important; }
+      .ms-play { left: auto !important; right: 24.6% !important; top: 41% !important; width: clamp(96px,9.6vw,139px) !important; height: auto !important; }
+
+      /* ENCONTRO */
+      .ms-encontro { padding: 64px clamp(28px,4vw,50px) !important; }
+      .ms-encontro-media { flex: 0 0 42% !important; height: auto !important; }
+      .ms-encontro-text { width: auto !important; flex: 1 1 0 !important; min-width: 0 !important; height: auto !important; }
+      .ms-encontro-text h2 { width: auto !important; height: auto !important; font-size: clamp(34px,3.6vw,48px) !important; }
+      .ms-encontro-text p { width: auto !important; height: auto !important; font-size: clamp(17px,1.5vw,20px) !important; }
+
+      /* FAMÍLIA */
+      .ms-familia-box { width: min(540px, 46vw) !important; padding: clamp(34px,3.4vw,47px) !important; }
+      .ms-familia-box h2 { font-size: clamp(42px,5vw,66px) !important; }
+      .ms-familia-box p, .ms-familia-box > span { font-size: clamp(16px,1.5vw,20px) !important; }
+
+      /* ROTA #1 — right-anchor keeps text off the ring, never clips */
+      .ms-rota1-text { left: auto !important; right: clamp(28px,3.2vw,46px) !important; width: min(596px, 46vw) !important; }
+      .ms-rota1-text h2 { font-size: clamp(32px,3.4vw,48px) !important; }
+      .ms-rota1-text p { font-size: clamp(17px,1.5vw,20px) !important; }
+
+      /* VALÉRIA */
+      .ms-valeria h2 { width: auto !important; height: auto !important; font-size: clamp(34px,3.6vw,48px) !important; }
+      .ms-valeria p { font-size: clamp(17px,1.5vw,20px) !important; }
+
+      /* GIANO — two fluid columns preserving the 675/768 ratio */
+      .ms-giano { padding: clamp(18px,2vw,30px) !important; gap: clamp(16px,2vw,30px) !important; align-items: stretch !important; }
+      .ms-giano-portrait, .ms-giano-box { flex: 1 1 0 !important; min-width: 0 !important; width: auto !important; height: auto !important; aspect-ratio: 675 / 768 !important; }
+      .ms-giano-textwrap { left: clamp(24px,3vw,40px) !important; right: clamp(24px,3vw,40px) !important; top: clamp(36px,6vw,72px) !important; width: auto !important; }
+      .ms-giano-textwrap h2 { width: auto !important; height: auto !important; font-size: clamp(30px,3.2vw,48px) !important; }
+      .ms-giano-textwrap p { font-size: clamp(16px,1.4vw,20px) !important; }
+      .ms-giano-box > img { left: auto !important; right: clamp(20px,2.5vw,32px) !important; top: auto !important; bottom: clamp(20px,2.5vw,32px) !important; }
+
+      /* ROTA #2 */
+      .ms-rota2-text { width: 52% !important; padding: 72px 0 0 clamp(28px,3.4vw,50px) !important; }
+      .ms-rota2-text h2 { width: auto !important; font-size: clamp(32px,3.4vw,48px) !important; }
+      .ms-rota2-text p { width: auto !important; height: auto !important; font-size: clamp(17px,1.5vw,20px) !important; }
+
+      /* Long buttons wrap instead of forcing horizontal scroll */
+      .ms-encontro-text > div:last-child span, .ms-rota2-text > div:last-child span, .ms-rota1-text > div:last-child span { white-space: normal !important; font-size: clamp(18px,1.7vw,24px) !important; }
+    }
+
+    /* ---------- TABLET ( 769–1023 ) — stack the two-column bands ---------- */
+    @media (min-width: 769px) and (max-width: 1023.98px) {
+      /* HERO */
+      .ms-hero { height: auto !important; }
+      .ms-hero-inner { position: static !important; left: auto !important; top: auto !important; width: auto !important; height: auto !important; min-height: 70vh !important; margin: 16px !important; padding: 48px 40px !important; justify-content: flex-end !important; gap: 22px !important; }
+      .ms-hero-logo { width: 208px !important; height: auto !important; }
+      .ms-copy { width: min(640px, 100%) !important; }
+      .ms-hero-inner h1 { font-size: clamp(32px,4.6vw,44px) !important; }
+      .ms-hero-inner p, .ms-copy > span { font-size: 19px !important; }
+      .ms-btnrow { flex-wrap: wrap !important; }
+      .ms-btnrow > div { padding: 16px 32px !important; }
+      .ms-btnrow > div > span { white-space: normal !important; font-size: 19px !important; }
+      .ms-play { left: 50% !important; right: auto !important; top: 24% !important; transform: translate(-50%,-50%) !important; width: 96px !important; height: auto !important; }
+
+      /* ENCONTRO → stack */
+      .ms-encontro { flex-direction: column !important; padding: 56px 40px !important; gap: 32px !important; align-items: stretch !important; }
+      .ms-encontro-media { width: 100% !important; max-width: 460px !important; height: auto !important; margin: 0 auto !important; position: static !important; flex: none !important; }
+      .ms-encontro-text { width: 100% !important; height: auto !important; }
+      .ms-encontro-text h2 { width: auto !important; height: auto !important; font-size: 38px !important; }
+      .ms-encontro-text p { width: auto !important; height: auto !important; font-size: 18px !important; }
+
+      /* FAMÍLIA */
+      .ms-familia-box { width: min(540px, 62vw) !important; padding: 40px !important; }
+      .ms-familia-box h2 { font-size: clamp(38px,6vw,54px) !important; }
+      .ms-familia-box p, .ms-familia-box > span { font-size: 18px !important; }
+
+      /* ROTA #1 → show TOP arc of orbit */
+      .ms-rota1 { height: auto !important; display: flex !important; flex-direction: column !important; }
+      .ms-circ { display: block !important; order: -1 !important; position: relative !important; left: auto !important; top: auto !important; width: 100% !important; height: 460px !important; transform: none !important; margin: 0 !important; }
+      .ms-circ > div:last-child { left: 50% !important; top: 520px !important; scale: 0.78 !important; }
+      .ms-rota1-text { position: static !important; left: auto !important; top: auto !important; right: auto !important; width: auto !important; padding: 56px 40px !important; }
+      .ms-rota1-text h2 { font-size: 38px !important; }
+      .ms-rota1-text p { font-size: 18px !important; }
+
+      /* GALERIA → 4 cols */
+      .ms-grid { grid-template-columns: repeat(4, 1fr) !important; }
+      .ms-valeria { max-width: none !important; padding: 40px !important; }
+      .ms-valeria h2 { width: auto !important; height: auto !important; font-size: 38px !important; }
+      .ms-valeria p { font-size: 18px !important; }
+
+      /* GIANO → stack */
+      .ms-giano { flex-direction: column !important; padding: 20px !important; gap: 20px !important; }
+      .ms-giano-portrait { width: 100% !important; max-width: 620px !important; height: 420px !important; margin: 0 auto !important; }
+      .ms-giano-box { position: relative !important; width: 100% !important; max-width: 620px !important; height: auto !important; min-height: 560px !important; margin: 0 auto !important; }
+      .ms-giano-textwrap { position: static !important; left: auto !important; top: auto !important; width: auto !important; padding: 44px 40px 80px !important; }
+      .ms-giano-textwrap h2 { width: auto !important; height: auto !important; font-size: 38px !important; }
+      .ms-giano-textwrap p { font-size: 18px !important; }
+      .ms-giano-box > img { left: auto !important; right: 32px !important; top: auto !important; bottom: 28px !important; }
+
+      /* ROTA #2 → stack */
+      [data-om-label="rota"] { height: auto !important; margin-bottom: -56px !important; }
+      .ms-rota2-inner { position: static !important; flex-direction: column !important; }
+      .ms-rota2-text { width: 100% !important; padding: 56px 40px !important; }
+      .ms-rota2-text h2 { width: auto !important; font-size: 38px !important; }
+      .ms-rota2-text p { width: auto !important; height: auto !important; font-size: 18px !important; }
+      .ms-rota2-photos { height: 360px !important; flex: none !important; width: 100% !important; }
+
+      /* Long buttons wrap */
+      .ms-encontro-text > div:last-child, .ms-rota1-text > div:last-child, .ms-rota2-text > div:last-child { height: auto !important; padding: 16px 32px !important; }
+      .ms-encontro-text > div:last-child span, .ms-rota1-text > div:last-child span, .ms-rota2-text > div:last-child span { white-space: normal !important; font-size: 18px !important; }
+
+      /* FOOTER */
+      .ms-footer { height: 560px !important; }
+      .ms-footer img { height: 72px !important; }
+    }
+
+    /* ---------- LARGE MONITORS ( ≥ 1600 ) — scale the whole 1440 composition up ---------- */
+    /* Keeps the exact layout; zoom scales layout + scroll height correctly so nothing shifts. */
+    html, body { background: var(--cream); }
+    @media (min-width: 1600px) { .ms-root { zoom: 1.12; } }
+    @media (min-width: 1920px) { .ms-root { zoom: 1.33; } }
+    @media (min-width: 2304px) { .ms-root { zoom: 1.58; } }
+    @media (min-width: 2560px) { .ms-root { zoom: 1.74; } }
+    @media (min-width: 3200px) { .ms-root { zoom: 2.15; } }
+    @media (min-width: 3840px) { .ms-root { zoom: 2.6; } }
+
+    /* ---------- CTA HOVER ---------- */
+    .ms-cta { transition: transform .25s ease, box-shadow .25s ease, filter .25s ease, background-color .25s ease; }
+    .ms-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(35,1,0,0.30); filter: brightness(1.08); }
+    .ms-cta:active { transform: translateY(-1px); }
+    .ms-cta-outline:hover { filter: none; background-color: rgba(255,255,255,0.14); box-shadow: inset 0 0 0 1px rgb(255,255,255), 0 14px 28px rgba(35,1,0,0.22); }
+    .ms-cta .ms-cup { flex-shrink: 0; transition: transform .25s ease; }
+    .ms-cta:hover .ms-cup { transform: translateY(-1px) rotate(-6deg); }
+
+    /* ---------- APPEAR ON SCROLL (gated: no-JS / reduced-motion show everything) ---------- */
+    @media (prefers-reduced-motion: no-preference) {
+      body.ms-reveal-on .ms-reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s cubic-bezier(.16,.7,.3,1), transform .8s cubic-bezier(.16,.7,.3,1); will-change: opacity, transform; }
+      body.ms-reveal-on .ms-reveal.ms-in { opacity: 1; transform: none; }
+
+      /* Valéria gallery — each photo pops in LARGER then settles into its cell, cascading out from the centre */
+      body.ms-gallery-on .ms-gcell { position: relative; opacity: 0; transform: scale(1.85); z-index: 4; transition: opacity .55s ease, transform .85s cubic-bezier(.18,.82,.25,1); will-change: opacity, transform; }
+      body.ms-gallery-on .ms-gcell.ms-in { opacity: 1; transform: scale(1); z-index: 1; }
+      /* the central portrait (Valéria) stays enlarged and raised for emphasis */
+      body.ms-gallery-on .ms-gcenter { z-index: 6; opacity: 0; transform: scale(3.1); }
+      body.ms-gallery-on .ms-gcenter.ms-in { opacity: 1; transform: scale(1.85); z-index: 5; box-shadow: 0 30px 70px rgba(35,1,0,0.45); }
+    }
+  </style>
+</helmet>
+<div class="ms-root" style="max-width:1440px;margin:0 auto;background:var(--cream);font-family:var(--font-sans);position:relative;">
+
+  <div style="position: relative; z-index: 1; background: var(--cream); border-radius: 49px">
+
+  <!-- HERO — 828px section, 772px inner -->
+  
+
+  <!-- VIDEO MODAL -->
+  <sc-if value="{{ showVideo }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeVideo }}" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+      <div style="width:900px;max-width:90vw;aspect-ratio:16/9;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2j6aMM9EyH4?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="true" style="display:block;"></iframe>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ENCONTRO NACIONAL DO CAFÉ — carousel with arrows + text right -->
+  <div class="ms-hero" id="topo" style="position: relative; height: 632px; overflow: hidden; background-color: rgb(246,242,231)">
+    <div class="ms-hero-inner" style="position: absolute; left: 30px; right: 30px; top: 26px; width: auto; height: 576px; border-radius: 34px; background: linear-gradient(rgba(35,1,0,0.52),rgba(35,1,0,0.52)), url(./assets/opt/hero-vista.jpg) center / cover no-repeat; display: flex; flex-direction: column; gap: 29px; padding: 10px 30px; justify-content: center; align-items: flex-start; box-sizing: border-box">
+      <img class="ms-hero-logo" src="./captura-de-tela-2026-07-08-a-s-18-40-33--mreapqle.png" alt="Fazenda Vidigal" style="width:258.652px;height:95px;object-fit:contain;object-position:left center;">
+      <div class="ms-copy" style="width:596px;display:flex;flex-direction:column;gap:10px;align-items:flex-start;flex-shrink:0;">
+        <span style="font-family:var(--font-sans);font-size:24px;line-height:100%;color:rgb(255,255,255);">Barra do Choça · Planalto da Conquista · Bahia</span>
+        <h1 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:48px;line-height:1.1;color:rgb(255,255,255);">O café mais premiado da região nasce entre a ciência e a arte.</h1>
+        <p style="margin:0;font-family:var(--font-sans);font-size:24px;line-height:100%;color:rgb(255,255,255);">Uma fazenda de família. Tecnologia no campo, arte nas telas, prêmios na xícara.</p>
+      </div>
+      <div class="ms-btnrow" style="display:flex;flex-direction:row;gap:10px;align-items:flex-start;flex-shrink:0;">
+        <div class="ms-cta" style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+          <svg class="ms-cup" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H8a4 4 0 0 1-4-4V8Z"></path><path d="M17 9h2.2a2.4 2.4 0 0 1 0 4.8H17"></path><path d="M7.5 2.2c-.5.7-.5 1.5 0 2.2M11 2.2c-.5.7-.5 1.5 0 2.2"></path></svg>
+          <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.1; color: rgb(255,255,255)">Agendar Visita</span>
+        </div>
+        <div class="ms-cta ms-cta-outline" style="height:66px;border-radius:16px;box-shadow:inset 0 0 0 1px rgb(255,255,255);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+          <svg class="ms-cup" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H8a4 4 0 0 1-4-4V8Z"></path><path d="M17 9h2.2a2.4 2.4 0 0 1 0 4.8H17"></path><path d="M7.5 2.2c-.5.7-.5 1.5 0 2.2M11 2.2c-.5.7-.5 1.5 0 2.2"></path></svg>
+          <span style="font-family: Montserrat; font-size: 20px; white-space: nowrap; line-height: 1.1; color: rgb(255,255,255)">Conhecer o Encontro Nacional do Café</span>
+        </div>
+      </div>
+      <!-- Play button — opens video popup -->
+      <div class="ms-play" onClick="{{ openVideo }}" style="position:absolute;right:24%;top:50%;transform:translateY(-50%);width:111px;height:auto;aspect-ratio:139/147;cursor:pointer;opacity:0.9;" style-hover="opacity:1;transform:translateY(-50%) scale(1.06);">
+        
+      <svg width="100%" height="100%" viewBox="0 0 139 147" fill="rgb(255,255,255)" style="display:block;">
+          <path d="M 127.365 54.045 C 130.879 55.922 133.818 58.725 135.867 62.152 C 137.917 65.579 139 69.502 139 73.5 C 139 77.498 137.917 81.421 135.867 84.848 C 133.818 88.275 130.879 91.078 127.365 92.955 L 33.632 144.161 C 18.539 152.415 0 141.684 0 124.713 L 0 22.294 C 0 5.316 18.539 -5.407 33.632 2.832 L 127.365 54.045 Z" fill-rule="nonzero"></path>
+        </svg></div>
+    </div>
+  </div><div class="ms-encontro ms-reveal" id="encontro" style="padding: 88px 50px; display: flex; gap: 144px; align-items: flex-start; justify-content: space-between; background-color: rgb(246,242,231)">
+    
+    <div class="ms-encontro-media" style="flex: 0 0 45%; max-width: 497px; display: flex; flex-direction: column; align-items: center; width: 100%; height: 581px; flex-wrap: nowrap; position: sticky">
+      <div style="aspect-ratio:497/492;width:100%;position:relative;">
+        <x-import component-from-global-scope="Stack" from="./Stack.jsx" ref="{{ stackRef }}" cards="{{ encontroCards }}" sensitivity="{{ 180 }}" hint-size="100%,100%">Stack</x-import>
+      </div>
+      <div style="display: flex; gap: 16px; margin-top: 24px; justify-content: center;">
+        <div onClick="{{ prevStack }}" style="width:52px;height:52px;border-radius:50%;border:2px solid var(--text-primary);display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;" style-hover="background:var(--text-primary);color:#fff;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg>
+        </div>
+        <div onClick="{{ nextStack }}" style="width:52px;height:52px;border-radius:50%;border:2px solid var(--text-primary);display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;" style-hover="background:var(--text-primary);color:#fff;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg>
+        </div>
+      </div>
+    </div><div class="ms-encontro-text" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; align-items: flex-start; width: 554px"><span style="font-family:var(--font-sans);font-size:24px;line-height:1.2;color:var(--text-primary);">Encontro Nacional do café</span><h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.2; color: var(--text-primary); width: 403px">O café do Brasil inteiro <br>vem parar aqui.</h2><p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 511px; font-weight: 300">O Encontro Nacional do Café reúne produtores, pesquisadores, autoridades e mais de 100 empresas de vários estados, tudo dentro da Fazenda Vidigal.<br><br>Tecnologia, cultura e negócio, no mesmo evento, uma vez por ano.</p><div class="ms-cta" style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+        <svg class="ms-cup" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H8a4 4 0 0 1-4-4V8Z"></path><path d="M17 9h2.2a2.4 2.4 0 0 1 0 4.8H17"></path><path d="M7.5 2.2c-.5.7-.5 1.5 0 2.2M11 2.2c-.5.7-.5 1.5 0 2.2"></path></svg>
+        <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.2; color: rgb(255,255,255)">Conheça o Encontro Nacional do Café</span>
+      </div></div>
+  </div>
+
+  <!-- GALERIA + VALÉRIA -->
+  <div style="overflow:hidden;background-color:rgb(246,242,231);">
+    <div class="ms-grid ms-gallery" style="display:grid;grid-template-columns:repeat(5, 1fr);gap:0;">
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/product-01.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-01.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-02.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-03.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-04.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-05.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-06.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell ms-gcenter" style="aspect-ratio: 1; overflow: hidden; border-radius: 0px"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-07-hi.png" alt="Valéria Vidigal" hint-size="100%,100%" style="border-radius: 0px"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-08.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/giano-bg.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-09.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/family-fazenda.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/gallery-10.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/footer-vista.jpg" hint-size="100%,100%"></x-import></div>
+      <div class="ms-gcell" style="aspect-ratio:1;overflow:hidden;"><x-import component-from-global-scope="TiltImage" from="./TiltImage.jsx" src="./assets/opt/hero-vista.jpg" hint-size="100%,100%"></x-import></div>
+    </div>
+    <div class="ms-valeria ms-reveal" id="valeria" style="display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center;max-width:753px;margin:0 auto;padding:40px 50px;">
+      <img src="./assets/logo-v-vidigal.png" alt="V. Vidigal" style="height:72px;width:180px;object-fit:contain;">
+      <h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.1; color: var(--text-primary); text-align: center; width: 599px; height: 105px">Há mais de vinte anos, Valéria pinta uma coisa só: café.</h2>
+      <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.4; color: var(--text-primary); text-align: center; font-weight: 300">Valéria Vidigal é artista plástica e cafeicultora. Suas telas retratam exclusivamente o universo do café da colheita à xícara e já passaram por mais de 100 exposições no Brasil e no exterior. Hoje, seu trabalho é referência para quem estuda a cultura cafeeira através da arte.</p>
+    </div>
+  </div>
+
+  <!-- FAMÍLIA — text contained in box -->
+  <div class="ms-familia ms-reveal" id="familia" style="position: relative; height: 867px; overflow: hidden; background: url(&quot;./assets/opt/frame-4.png&quot;) center / cover no-repeat">
+    <div class="ms-familia-box" style="position: absolute; left: 50px; top: 41px; width: 540px; height: 770px; border-radius: 20px; background-color: rgb(246,242,231); padding: 50px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; overflow: hidden; padding-top: 47px; padding-right: 47px; padding-bottom: 47px; padding-left: 47px">
+      <span style="font-family:var(--font-sans);font-size:22px;line-height:100%;color:var(--text-primary);">Fazenda Vidigal e Família</span>
+      <h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 66px; line-height: 1.1; color: var(--text-primary)">Uma herança que atravessou três gerações até virar fazenda.</h2>
+      
+      <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.4; color: var(--text-primary); font-weight: 200">A relação da família com o café começou em Viçosa, Minas Gerais, na torrefação dos avós de Valéria Vidigal. Décadas depois, ela e o engenheiro agrônomo Giano Brito replantaram essa história no Planalto da Conquista, na Bahia ela com a arte, ele com a ciência do campo.</p><p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.4; color: var(--text-primary); font-weight: 200">Hoje, Rafaela, Isabela e Renato crescem dentro da mesma lavoura, e a Fazenda Vidigal também virou sede de um dos maiores encontros de café do Brasil.</p>
+    </div>
+  </div>
+
+  <!-- ROTA DO CAFÉ #1 (Session 4) — text on the right; bent/circular photo gallery on the left (CSS adaptation of React Bits "CircularGallery") -->
+  <div class="ms-rota1 ms-reveal" id="rota" style="position:relative;height:700px;overflow:hidden;background-color:rgb(246,242,231);">
+    <div class="ms-circ" style="position: absolute; left: -125px; top: -3px; width: 745px; height: 765px; overflow: hidden">
+      <div style="position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to bottom, rgb(246,242,231) 0%, transparent 22%, transparent 62%, rgb(246,242,231) 100%);"></div>
+      <div style="position:absolute;left:0px;top:50%;width:0;height:0;animation:ringSpin 24s linear infinite;">
+        <div style="position:absolute;transform:rotate(0deg) translate(560px) rotate(0deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(45deg) translate(560px) rotate(-45deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-03.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(90deg) translate(560px) rotate(-90deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-05.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(135deg) translate(560px) rotate(-135deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-02.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(180deg) translate(560px) rotate(-180deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(225deg) translate(560px) rotate(-225deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-03.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(270deg) translate(560px) rotate(-270deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-05.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+        <div style="position:absolute;transform:rotate(315deg) translate(560px) rotate(-315deg);"><div style="width:230px;height:300px;margin:-150px 0 0 -115px;animation:ringCounterSpin 24s linear infinite;"><img src="./assets/opt/rota-02.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:27px;box-shadow:0 18px 36px rgba(35,1,0,0.24);display:block;"></div></div>
+      </div>
+    </div>
+    <div class="ms-rota1-text" style="position: absolute; left: 798px; top: 83px; width: 596px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start">
+      <span style="font-family:var(--font-sans);font-size:24px;line-height:1.2;color:var(--text-primary);">Rota do Café</span>
+      <h2 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:48px;line-height:1.2;color:var(--text-primary);">Você pode passar a vida bebendo café. Ou passar um dia entendendo tudo o que existe antes dele.</h2>
+      <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); font-weight: 300">A visita à Fazenda Vidigal é guiada e pensada para grupos: rota sensorial do café, colheita no pé, laboratório, degustação, espaço gourmet.</p>
+      <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); font-weight: 300">Cada roteiro é montado para o seu grupo, do simples ao completo.</p>
+      <div class="ms-cta" style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+        <svg class="ms-cup" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H8a4 4 0 0 1-4-4V8Z"></path><path d="M17 9h2.2a2.4 2.4 0 0 1 0 4.8H17"></path><path d="M7.5 2.2c-.5.7-.5 1.5 0 2.2M11 2.2c-.5.7-.5 1.5 0 2.2"></path></svg>
+        <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.2; color: rgb(255,255,255)">Quero fazer a rota do café!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIANO — Frame 6 background -->
+  <div class="ms-giano ms-reveal" id="giano" style="background:url(./assets/opt/frame6-bg.png) center/cover no-repeat;padding:30px;display:flex;gap:30px;justify-content:center;align-items:center;">
+    <div class="ms-giano-portrait" style="width:675px;height:768px;border-radius:20px;background:url(./assets/opt/giano-portrait.png) center / cover no-repeat;flex-shrink:0;"></div>
+    <div class="ms-giano-box" style="position:relative;width:675px;height:768px;border-radius:20px;background-color:rgb(246,242,231);flex-shrink:0;">
+      <div class="ms-giano-textwrap" style="position:absolute;left:40px;top:72px;width:596px;display:flex;flex-direction:column;gap:20px;align-items:flex-start;">
+        
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;">
+          <h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.1; color: var(--text-primary); width: 417px; height: 173px">Há mais de vinte anos, ele decide cada etapa antes que o grão exista.</h2>
+          <p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.4; color: var(--text-primary)">Giano Brito é engenheiro agrônomo e o responsável técnico da Fazenda Vidigal. Escolhe as mudas, conduz o cultivo e define os processos de colheita e pós-colheita a ciência por trás de cada prêmio que a fazenda recebe.<br><br>É também um dos organizadores do Encontro Nacional do Café ao lado de Valéria Vidigal e Márcia Viana, evento que reúne o setor cafeeiro do Brasil inteiro na fazenda desde 2007.</p>
+          
+        </div></div>
+      <img src="./logovidigla-mrevb200.png" alt="Fazenda Vidigal" style="position: absolute; left: 561px; top: 651px; width: 91px; height: 96px; object-fit: contain">
+    </div>
+  </div>
+
+  <!-- ROTA DO CAFÉ #2 — with 2×3 photo grid, rounded bottom, overlapping footer (matches Figma node 30:200) -->
+  <!-- Outer shell: NO overflow:hidden here, so its own box-shadow paints past the rounded corners uninterrupted -->
+  <div class="ms-reveal" style="position:relative;z-index:2;height:700px;border-radius:0 0 37px 37px;box-shadow:0 24px 48px rgba(35,1,0,0.18);margin-bottom:-87px;" data-om-label="rota">
+    <!-- Inner shell: owns overflow:hidden + the same radius, so only ITS content (bg + photos) clips into the rounded shape -->
+    <div class="ms-rota2-inner" style="position:absolute;inset:0;overflow:hidden;border-radius:0 0 37px 37px;background-color:rgb(246,242,231);display:flex;">
+    <div class="ms-rota2-text" style="flex: 0 0 auto; width: 746px; padding: 88px 0 0 50px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; border-radius: 0px; flex-grow: 0">
+      <span style="font-family:var(--font-sans);font-size:24px;line-height:1.2;color:var(--text-primary);">O Café Vidigal</span>
+      <h2 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:48px;line-height:1.2;color:var(--text-primary);width:596px;">O prêmio começa antes da xícara.</h2>
+      
+      
+      <div style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 505px; font-weight: 300; height: 189px"><p class="p1" style="margin: 0px; font-style: normal; font-variant: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Montserrat; color: rgba(0, 0, 0, 0.85)">Café Vidigal é o resultado de duas décadas de método: colheita 100% manual, processos de despolpado e natural premiados em concursos nacionais.<span class="Apple-converted-space">&nbsp; <br></span><br>Cada safra carrega o mesmo padrão que colocou a fazenda entre as mais premiadas do Planalto da Conquista.</p></div><div class="ms-cta" style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+        <svg class="ms-cup" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H8a4 4 0 0 1-4-4V8Z"></path><path d="M17 9h2.2a2.4 2.4 0 0 1 0 4.8H17"></path><path d="M7.5 2.2c-.5.7-.5 1.5 0 2.2M11 2.2c-.5.7-.5 1.5 0 2.2"></path></svg>
+        <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.2; color: rgb(255,255,255)">Quero conhecer o Café Vidigal!</span>
+      </div>
+    </div>
+    <div class="ms-rota2-photos" style="flex:1;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;display:flex;gap:6px;">
+        <div style="flex:1;overflow:hidden;">
+          <div style="display:flex;flex-direction:column;gap:6px;animation:scrollUp 40s linear infinite;">
+            <img src="./assets/opt/rota-01.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-03.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-05.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-01.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-03.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-05.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div style="flex:1;overflow:hidden;">
+          <div style="display:flex;flex-direction:column;gap:6px;animation:scrollDown 40s linear infinite;">
+            <img src="./assets/opt/rota-02.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-04.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-06.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-02.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-04.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+            <img src="./assets/opt/rota-06.jpg" alt="" style="width:100%;height:250px;object-fit:cover;display:block;">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- FOOTER — sticky reveal, logosvidigal.png -->
+  <div class="ms-footer" style="position:sticky;bottom:0;z-index:0;width:100%;height:867px;overflow:hidden;background:url(./assets/opt/footer-vista.jpg) center / cover no-repeat;">
+    <div style="position:absolute;left:50%;top:197px;transform:translateX(-50%);">
+      <img src="./assets/logosvidigal.png" alt="Fazenda Vidigal" style="height:95px;object-fit:contain;">
+    </div>
+    <div class="ms-footer-info" style="position:absolute;left:0;right:0;bottom:0;padding:120px 40px 40px;background:linear-gradient(to bottom, transparent, rgba(35,1,0,0.85) 55%);display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;color:rgb(246,242,231);">
+      <div class="ms-footer-loc" style="font-family:var(--font-serif);font-size:22px;line-height:1.3;">Fazenda Vidigal · Barra do Choça · Planalto da Conquista · Bahia</div>
+      <div class="ms-footer-row" style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;font-family:var(--font-sans);font-weight:300;font-size:16px;line-height:1.4;opacity:0.92;">
+        <span style="font-weight:500;opacity:1;">Navegue:</span>
+        <a href="#encontro" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">Encontro Nacional do Café</a><span style="opacity:0.5;">·</span>
+        <a href="#familia" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">Quem somos</a><span style="opacity:0.5;">·</span>
+        <a href="#rota" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">Rota do Café</a><span style="opacity:0.5;">·</span>
+        <a href="#valeria" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">Valéria Vidigal</a><span style="opacity:0.5;">·</span>
+        <a href="#giano" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">Giano Brito</a><span style="opacity:0.5;">·</span>
+        <a href="#topo" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">Fazenda Vidigal (Café)</a>
+      </div>
+      <div class="ms-footer-row" style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;font-family:var(--font-sans);font-weight:300;font-size:16px;line-height:1.4;opacity:0.92;">
+        <span style="font-weight:500;opacity:1;">Contato:</span>
+        <a href="https://wa.me/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">WhatsApp</a><span style="opacity:0.5;">·</span>
+        <a href="https://instagram.com/fazendavidigal" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">@fazendavidigal</a><span style="opacity:0.5;">·</span>
+        <a href="https://instagram.com/cafevidigal" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">@cafevidigal</a><span style="opacity:0.5;">·</span>
+        <a href="https://instagram.com/valeriavidigal" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" style-hover="text-decoration:underline;">@valeriavidigal</a>
+      </div>
+      <div style="margin-top:8px;font-family:var(--font-serif);font-size:18px;line-height:1.3;opacity:0.85;">Fazenda Vidigal — Café feito com arte.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { showVideo: false };
+  stackRef = React.createRef();
+
+  componentDidMount() {
+    const setup = () => {
+      try {
+        const els = Array.from(document.querySelectorAll('.ms-reveal'));
+        if (!els.length) return;
+        const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.body.classList.add('ms-reveal-on');
+        if (reduce || !('IntersectionObserver' in window)) {
+          els.forEach(e => e.classList.add('ms-in'));
+          return;
+        }
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(en => {
+            if (en.isIntersecting) { en.target.classList.add('ms-in'); io.unobserve(en.target); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        els.forEach(e => {
+          // already-in-view elements reveal immediately
+          const r = e.getBoundingClientRect();
+          if (r.top < window.innerHeight * 0.92) e.classList.add('ms-in');
+          else io.observe(e);
+        });
+
+        // --- Valéria gallery: staggered scale-in cascading from the centre photo ---
+        const gallery = document.querySelector('.ms-gallery');
+        if (gallery) {
+          const cols = 5, centerR = 1, centerC = 2, step = 95;
+          const cells = Array.from(gallery.querySelectorAll('.ms-gcell'));
+          const ordered = cells
+            .map((el, i) => ({ el, d: Math.max(Math.abs(Math.floor(i / cols) - centerR), Math.abs((i % cols) - centerC)) }))
+            .sort((a, b) => a.d - b.d);
+          if (reduce || !('IntersectionObserver' in window)) {
+            document.body.classList.add('ms-gallery-on');
+            ordered.forEach(o => o.el.classList.add('ms-in'));
+          } else {
+            document.body.classList.add('ms-gallery-on');
+            const fire = () => ordered.forEach((o, idx) => {
+              o.el.style.transitionDelay = (idx * step) + 'ms';
+              requestAnimationFrame(() => requestAnimationFrame(() => o.el.classList.add('ms-in')));
+            });
+            const gio = new IntersectionObserver((ents) => {
+              ents.forEach(en => { if (en.isIntersecting) { fire(); gio.disconnect(); } });
+            }, { threshold: 0.18 });
+            const gr = gallery.getBoundingClientRect();
+            if (gr.top < window.innerHeight * 0.85 && gr.bottom > 0) fire();
+            else gio.observe(gallery);
+          }
+        }
+      } catch (e) {}
+    };
+    setTimeout(setup, 160);
+  }
+
+  renderVals() {
+    const encontroFiles = ['gallery-04.jpg', 'gallery-09.jpg', 'gallery-01.jpg', 'family-fazenda.jpg'];
+    const encontroCards = encontroFiles.map((f, i) =>
+      React.createElement('img', {
+        key: i,
+        src: `./assets/opt/${f}`,
+        alt: '',
+        style: { width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none' },
+      })
+    );
+
+    return {
+      showVideo: this.state.showVideo,
+      openVideo: () => this.setState({ showVideo: true }),
+      closeVideo: () => this.setState({ showVideo: false }),
+      encontroCards,
+      stackRef: this.stackRef,
+      prevStack: () => this.stackRef.current && this.stackRef.current.prev(),
+      nextStack: () => this.stackRef.current && this.stackRef.current.next(),
+    };
+  }
+}
+</script>
+</body>
+</html>
