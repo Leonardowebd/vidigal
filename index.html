@@ -230,7 +230,7 @@
 
       /* ROTA #2 → stack */
       [data-om-label="cafe"] { height: auto !important; }
-      .ms-giano { margin-bottom: -56px !important; }
+      .ms-encontro { margin-bottom: -56px !important; }
       .ms-rota2-inner { position: static !important; flex-direction: column !important; }
       .ms-rota2-text { width: 100% !important; padding: 56px 40px !important; }
       .ms-rota2-text h2 { width: auto !important; font-size: 38px !important; }
@@ -331,27 +331,6 @@
   </div>
 
   
-  <!-- ENCONTRO NACIONAL DO CAFÉ 2027 -->
-  <div class="ms-encontro ms-reveal" id="encontro" style="padding: 88px 50px; display: flex; gap: 144px; align-items: flex-start; justify-content: space-between; background-color: rgb(246,242,231)">
-    
-    <div class="ms-encontro-media" style="flex: 0 0 45%; max-width: 497px; display: flex; flex-direction: column; align-items: center; width: 100%; height: auto; flex-wrap: nowrap; position: sticky">
-      <div style="aspect-ratio:1266/1600;width:100%;position:relative;">
-        <x-import component-from-global-scope="Stack" from="./Stack.jsx" ref="{{ stackRef }}" cards="{{ encontroCards }}" sensitivity="{{ 180 }}" hint-size="100%,100%">Stack</x-import>
-      </div>
-      <div style="display: flex; gap: 16px; margin-top: 24px; justify-content: center;">
-        <div onClick="{{ prevStack }}" style="width:52px;height:52px;border-radius:50%;border:2px solid var(--text-primary);display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;" style-hover="background:var(--text-primary);color:#fff;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg>
-        </div>
-        <div onClick="{{ nextStack }}" style="width:52px;height:52px;border-radius:50%;border:2px solid var(--text-primary);display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;" style-hover="background:var(--text-primary);color:#fff;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg>
-        </div>
-      </div>
-    </div><div class="ms-encontro-text" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; align-items: flex-start; width: 554px"><span style="font-family:var(--font-sans);font-size:24px;line-height:1.2;color:var(--text-primary);">18º Encontro Nacional do Café · 10, 11 e 12 de setembro de 2027</span><h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.2; color: var(--text-primary); width: 403px">O café do Brasil inteiro <br>vem parar aqui.</h2><p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 511px; font-weight: 300">O Encontro Nacional do Café reúne produtores, pesquisadores, autoridades e mais de 100 empresas de vários estados, tudo dentro da Fazenda Vidigal.<br><br>Tecnologia, cultura e negócio, no mesmo evento, uma vez por ano.</p><div class="ms-cta" style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
-        <svg class="ms-cup" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H8a4 4 0 0 1-4-4V8Z"></path><path d="M17 9h2.2a2.4 2.4 0 0 1 0 4.8H17"></path><path d="M7.5 2.2c-.5.7-.5 1.5 0 2.2M11 2.2c-.5.7-.5 1.5 0 2.2"></path></svg>
-        <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.2; color: rgb(255,255,255)">Conheça o Encontro Nacional do Café</span>
-      </div></div>
-  </div>
-
   <!-- CAFÉ VIDIGAL (destaque 2) — with 2×3 photo grid, rounded bottom, overlapping footer (matches Figma node 30:200) -->
   <!-- Outer shell: NO overflow:hidden here, so its own box-shadow paints past the rounded corners uninterrupted -->
   <div class="ms-reveal" id="cafe" style="position:relative;height:700px;" data-om-label="cafe">
@@ -459,8 +438,8 @@
     </div>
   </div>
 
-  <!-- CONSULTORIA E PESQUISAS — Gianno Brito e Renato Vidigal (destaque 5, last: overlaps footer) — Frame 6 background -->
-  <div class="ms-giano ms-reveal" id="giano" style="position:relative;z-index:2;border-radius:0 0 37px 37px;box-shadow:0 24px 48px rgba(35,1,0,0.18);margin-bottom:-87px;background:url(./assets/opt/frame6-bg.png) center/cover no-repeat;padding:30px;display:flex;gap:30px;justify-content:center;align-items:center;">
+  <!-- CONSULTORIA E PESQUISAS — Gianno Brito e Renato Vidigal (destaque 5) — Frame 6 background -->
+  <div class="ms-giano ms-reveal" id="giano" style="background:url(./assets/opt/frame6-bg.png) center/cover no-repeat;padding:30px;display:flex;gap:30px;justify-content:center;align-items:center;">
     <div class="ms-giano-portrait" style="width:675px;height:768px;border-radius:20px;background:url(./assets/opt/giano-portrait.png) center / cover no-repeat;flex-shrink:0;"></div>
     <div class="ms-giano-box" style="position:relative;width:675px;height:768px;border-radius:20px;background-color:rgb(246,242,231);flex-shrink:0;">
       <div class="ms-giano-textwrap" style="position:absolute;left:40px;top:72px;width:596px;display:flex;flex-direction:column;gap:20px;align-items:flex-start;">
@@ -472,6 +451,27 @@
         </div></div>
       <img src="./logovidigla-mrevb200.png" alt="Fazenda Vidigal" style="position: absolute; left: 561px; top: 651px; width: 91px; height: 96px; object-fit: contain">
     </div>
+  </div>
+
+  <!-- ENCONTRO NACIONAL DO CAFÉ 2027 -->
+  <div class="ms-encontro ms-reveal" id="encontro" style="position:relative;z-index:2;border-radius:0 0 37px 37px;box-shadow:0 24px 48px rgba(35,1,0,0.18);margin-bottom:-87px;padding-bottom:140px;padding: 88px 50px; display: flex; gap: 144px; align-items: flex-start; justify-content: space-between; background-color: rgb(246,242,231)">
+    
+    <div class="ms-encontro-media" style="flex: 0 0 45%; max-width: 497px; display: flex; flex-direction: column; align-items: center; width: 100%; height: auto; flex-wrap: nowrap; position: sticky">
+      <div style="aspect-ratio:1266/1600;width:100%;position:relative;">
+        <x-import component-from-global-scope="Stack" from="./Stack.jsx" ref="{{ stackRef }}" cards="{{ encontroCards }}" sensitivity="{{ 180 }}" hint-size="100%,100%">Stack</x-import>
+      </div>
+      <div style="display: flex; gap: 16px; margin-top: 24px; justify-content: center;">
+        <div onClick="{{ prevStack }}" style="width:52px;height:52px;border-radius:50%;border:2px solid var(--text-primary);display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;" style-hover="background:var(--text-primary);color:#fff;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg>
+        </div>
+        <div onClick="{{ nextStack }}" style="width:52px;height:52px;border-radius:50%;border:2px solid var(--text-primary);display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;" style-hover="background:var(--text-primary);color:#fff;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg>
+        </div>
+      </div>
+    </div><div class="ms-encontro-text" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; align-items: flex-start; width: 554px"><span style="font-family:var(--font-sans);font-size:24px;line-height:1.2;color:var(--text-primary);">18º Encontro Nacional do Café · 10, 11 e 12 de setembro de 2027</span><h2 style="margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 48px; line-height: 1.2; color: var(--text-primary); width: 403px">O café do Brasil inteiro <br>vem parar aqui.</h2><p style="margin: 0; font-family: Montserrat; font-size: 20px; line-height: 1.5; color: var(--text-primary); width: 511px; font-weight: 300">O Encontro Nacional do Café reúne produtores, pesquisadores, autoridades e mais de 100 empresas de vários estados, tudo dentro da Fazenda Vidigal.<br><br>Tecnologia, cultura e negócio, no mesmo evento, uma vez por ano.</p><div class="ms-cta" style="height:66px;border-radius:16px;background-color:rgb(107,19,16);display:flex;gap:10px;padding:20px 56px;justify-content:center;align-items:center;box-sizing:border-box;cursor:pointer;">
+        <svg class="ms-cup" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H8a4 4 0 0 1-4-4V8Z"></path><path d="M17 9h2.2a2.4 2.4 0 0 1 0 4.8H17"></path><path d="M7.5 2.2c-.5.7-.5 1.5 0 2.2M11 2.2c-.5.7-.5 1.5 0 2.2"></path></svg>
+        <span style="font-family: Montserrat; font-size: 24px; white-space: nowrap; line-height: 1.2; color: rgb(255,255,255)">Conheça o Encontro Nacional do Café</span>
+      </div></div>
   </div>
   </div>
 
